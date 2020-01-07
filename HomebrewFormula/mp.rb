@@ -2,7 +2,6 @@ class Mp < Formula
   desc "Minimum Profit editor by Angel Ortega"
   homepage "https://triptico.com/software/mp.html"
   url "https://github.com/juiceghost/homebrew-mp"
-  sha256 "<SHA256>"
 
   def install
     system "make"
