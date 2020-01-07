@@ -1,0 +1,78 @@
+########################################################
+#
+# MS Windows-friendly keybindings for MP
+#
+# by Rick van der Zwet
+#
+########################################################
+
+bind <all> <none>
+
+bind f1 help
+bind f5 <none> 
+#this is reserved for direct insert the date in format 17:02 14-1-2004
+bind f7 play-macro
+bind f8 unmark
+bind f9 mark
+bind f10 record-macro
+bind ctrl-f1 toggle-auto-indent
+#not a official windows key but usefull
+bind ctrl-f4 exit
+bind ctrl-f7 seek
+bind ctrl-f8 seek-next
+bind ctrl-f10 menu
+bind ctrl-enter open-under-cursor
+
+bind ctrl-a <none>
+#this is reserved to the function "select all"
+bind ctrl-b find-tag
+bind ctrl-c copy
+bind ctrl-f seek
+bind ctrl-h replace
+bind ctrl-l document-list
+bind ctrl-g goto
+bind ctrl-n new
+bind ctrl-o open
+bind ctrl-q close
+bind ctrl-s save
+bind ctrl-t next
+#"bind ctrl-tab next" does not work
+bind ctrl-u insert-template
+bind ctrl-v paste
+bind ctrl-x cut
+bind ctrl-y delete-line
+bind ctrl-z <none>
+#this is reserved for the undo function, might be usefull ;)
+
+bind ctrl-cursor-up <none>
+bind ctrl-cursor-down <none
+bind ctrl-cursor-left move-word-left
+bind ctrl-cursor-right move-word-right
+bind ctrl-page-up <none>
+bind ctrl-page-down <none>
+bind ctrl-home move-bof
+bind ctrl-end move-eof
+bind ctrl-kp-minus zoom-out
+bind ctrl-kp-plus zoom-in
+bind ctrl-kp-multiply <none>
+bind ctrl-kp-divide <none>
+
+bind cursor-up move-up
+bind cursor-down move-down
+bind cursor-left move-left
+bind cursor-right move-right
+
+bind page-up move-page-up
+bind page-down move-page-down
+bind home move-bol
+bind end move-eol
+bind insert toggle-insert
+bind delete delete
+
+bind backspace delete-left
+bind enter insert-line
+bind tab insert-tab
+bind kp-minus <none>
+bind kp-plus <none>
+bind kp-multiply <none>
+bind kp-divide <none>

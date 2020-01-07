@@ -1,0 +1,9 @@
+README.solaris
+==============
+
+To compile Minimum Profit under Solaris you need both GNU make and GCC, so
+you probably would need to run
+
+	$ gmake CC=gcc CURSES=curses
+
+to build it.

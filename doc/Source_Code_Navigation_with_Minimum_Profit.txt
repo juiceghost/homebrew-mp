@@ -1,0 +1,31 @@
+Source Code Navigation with Minimum Profit
+==========================================
+
+Though Minimum Profit can be used as an ordinary text editor, it's mainly
+aimed at source code processing. This document describes the special
+features oriented to source code navigation included with Minimum Profit.
+
+Finding where a function or variable is defined
+-----------------------------------------------
+
+Finding where a function or variable is used
+--------------------------------------------
+
+Completing a local function or variable
+---------------------------------------
+
+Getting help about a system or library function
+-----------------------------------------------
+
+Creating documentation from special tags in your source code
+------------------------------------------------------------
+
+Getting help about a locally defined function
+---------------------------------------------
+
+Opening an included file
+------------------------
+
+Syntax highlighting
+-------------------
+

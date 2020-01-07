@@ -1,0 +1,697 @@
+Changelog
+=========
+
+ Minimum Profit - Programmer Text Editor
+ Copyright (C) 1991-2003 Angel Ortega <angel@triptico.com>
+ Home Page: http://www.triptico.com/software/mp.html
+
+3.2.10m - mar oct 21 12:35:40 CEST 2003
+---------------------------------------
+
+ - Syntax highlighters are reordered to test programming
+   languages before text formats.
+
+3.2.9 - sáb jul 26 09:48:38 CEST 2003
+-------------------------------------
+
+ - A global configuration file (/etc/mprc) is read before
+   ~/.mprc.
+
+ - A new syntax highlighter for PostScript files.
+
+ - Several fixes to the Curses version to allow being compiled
+   under several Unix flavours.
+
+ - Tons of small bugfixes.
+
+3.2.8 - lun feb 24 19:26:54 CET 2003
+------------------------------------
+
+ - All GTK dialogs include history, and appear centered.
+
+ - Several minor bugfixes.
+
+ - Several syntax highlight tuning.
+
+ - Changes to Makefile to allow compiling in a Sharp Zaurus.
+
+3.2.7 - mar feb 18 15:41:18 CET 2003
+------------------------------------
+
+ - Fixed two major bugs that could generate SYSSEGVs.
+
+3.2.6 - lun feb 10 19:48:32 CET 2003
+------------------------------------
+
+ - Regular expressions can now be used in search
+   and replace functions.
+
+ - Automatic indentation works again.
+
+ - New SQL syntax highlighter by Gabriel Emerson.
+
+3.2.5 - jue ene  9 18:47:21 CET 2003
+------------------------------------
+
+ - The internal representation of tabs has changed.
+
+ - New 'source' configuration command, to include another
+   configuration files.
+
+3.2.4 - mar dic 10 16:45:56 CET 2002
+------------------------------------
+
+ - Italian translation by lesion.
+
+ - Fixed a font selection bug in the GTK version.
+
+ - Fixed a menu rendering bug in the ncurses version.
+
+ - Fixed a template insertion bug in all versions.
+
+ - The Open File GTK dialog can now be cancelled by pressing ESC.
+
+ - Internal improvements to mp_seek() and a new mp_mark_match()
+   function.
+
+ - New editor function, show-clipboard, to show the clipboard
+   contents in a read-only editor window.
+
+ - New editor function, show-log, to show the internal log
+   in a read-only editor window.
+
+3.2.3 - dom nov 10 20:06:23 CET 2002
+------------------------------------
+
+ - Fixed a bug that caused occasional SIGSEGVs in GTK.
+
+3.2.2 - dom nov 10 11:29:34 CET 2002
+------------------------------------
+
+ - File globbing when no file spec is specified fixed in win32.
+
+ - Default language selection fixed in win32.
+
+ - New -geometry parameter and configuration file variables
+   to set geometry in GTK.
+
+3.2.1 - jue ago 22 12:25:13 CEST 2002
+-------------------------------------
+
+ - mpv_readline() shows the default string as selected in
+   GTK and Win32.
+
+ - When a selection list has only one item, it's automatically
+   selected in GTK and Win32 (this behaviour was already
+   implemented in Curses).
+
+ - If GTK cannot be initialised, the curses based Minimum Profit
+   is called.
+
+ - Bug fixed in startup language detection.
+
+ - New exec-function() function, to run a Minimum Profit function
+   (function function function...)
+
+ - New sync() function, to save all modified texts to disk.
+
+ - New grep() function, to grep a string in several files.
+
+3.2.0 - sáb jul 20 12:32:08 CEST 2002
+-------------------------------------
+
+ - New open-under-cursor() function, that takes the file name
+   under the cursor and opens it (this function is back from
+   3.1.2 version). By default bound to ctrl-enter.
+
+ - When files open from the GTK open file dialog live
+   in the default working directory, the path is converted
+   from absolute to relative.
+
+ - A substitute for glob() for Unix systems lacking of it.
+
+ - When switching open files from the tabs (Gtk), the
+   new open file is correctly redrawn.
+
+3.2.0rc5 - mié jul 17 18:08:57 CEST 2002
+----------------------------------------
+
+ - Optimizations to the GTK version (to avoid flickering).
+
+ - Another bug fixed in the sample configuration file.
+
+ - Non-existing open file error is now correctly
+   reported in GTK.
+
+3.2.0rc4 - mar jul  9 20:01:57 CEST 2002
+----------------------------------------
+
+ - Menus can be set from the configuration file.
+
+ - Fixed a bug in the sample configuration file.
+
+ - Check box menus really really work in GTK.
+
+ - Menu hotkeys now are shown in win32.
+
+3.2.0rc3 - dom jul  7 14:21:24 CEST 2002
+----------------------------------------
+
+ - Colors can be defined from the configuration file.
+
+ - Mouse wheel works in GTK.
+
+ - Check box menus (kind of) work in GTK.
+
+ - Mouse wheel works in Win32.
+
+3.2.0rc2 - mié jul  3 20:17:51 CEST 2002
+----------------------------------------
+
+ - Fixed an annoying bug in GTK key processing.
+
+ - Fixed a minor translation text bug in the curses version.
+
+3.2.0rc1 - mar jul  2 18:56:02 CEST 2002
+----------------------------------------
+
+ - A new GTK interface.
+
+ - Several things are configurable from a personal
+   configuration file as key bindings and other variables
+   (menu and colors aren't, yet).
+
+3.1.12m - (never released)
+--------------------------------------
+
+ - Fixed a stupid memory waste (win32).
+
+3.1.11 - vie may 31 22:14:07 CEST 2002
+--------------------------------------
+
+ - Instead of being a compile time option, language can be
+   run-time selected.
+
+ - Selection can be done using shift + movement key (win32).
+
+ - Misc. code cleaning (argument processing).
+
+3.1.10 - jue abr 18 19:34:26 CEST 2002
+--------------------------------------
+
+ - German translation by Peter Ludikovsky.
+
+ - New syntax highlighter for .po files.
+
+ - Fixed a minor bug in the file globbing code.
+
+ - Minor tweaks to the win32 code.
+
+3.1.9 - mié abr 17 17:31:31 CEST 2002
+-------------------------------------
+
+ - New function and variable completion using the tags in Ctrl-S.
+
+3.1.8b - dom abr  7 19:09:32 CEST 2002
+--------------------------------------
+
+ - Minor color changes to the menu.
+
+3.1.8 - mar feb 26 16:37:03 CET 2002
+------------------------------------
+
+ - New syntax highlighter for PHP by Geoff Youngs.
+
+ - Much better signal handling (unix version), also by Geoff Youngs.
+
+ - Treatment of numbers as strings (literals) in syntax
+   highlighting can now be toggled per mode.
+
+ - Some cosmetic changes (ugly titles on errors, etc.)
+
+3.1.7 - dom feb  3 18:14:52 CET 2002
+------------------------------------
+
+ - Fixed SIGSEGV when too much files to open (unix version)
+
+ - Cosmetic fixes: ugly status line when a tag is not found
+   from the command line (unix version)
+
+3.1.6 - jue ene 10 16:55:57 CET 2002
+------------------------------------
+
+ - New mpi_plain_draw_all() function, a stripped down version
+   of mpi_draw_all() that does not do any color tests. This
+   should result in some optimizations.
+
+ - Bug fixed: if a directory is opened, its contents is shown
+   in the list instead of just stupidly open the directory
+   (still does it wrong when getting a directory from the
+   command line, fixing soon).
+
+ - Bug fixed: a file contaning spaces in the name can be
+   opened from the file list.
+
+ - Case sensitivity in searches can be toggled now, and it works.
+
+ - All open files are shown on the screen, on the title bar
+   in the Unix version and on Mozilla-like tabs on the Win32
+   version.
+
+3.1.5w - lun dic  3 19:16:38 CET 2001
+-------------------------------------
+
+ - Bug fixed: Copy menu entry bangs (win32).
+
+ - The word wrapping dialog box now is readable (win32).
+
+3.1.5 - sáb dic  1 09:34:16 CET 2001
+------------------------------------
+
+ - Fixed the Win32 compilation, broken in 3.1.4.
+
+ - Win32 icon is cuter then ever!
+
+ - Improved detection of source comments.
+
+ - Improved syntax hilight code (escaped quote marks, quotes that
+   extend more than one line, ignored end of comments beyond the right
+   margin, start of comments below the first visible line, etc.). The
+   syntax highlighting should be no longer stinky.
+
+ - Improvements to the mp_doccer tool (see tools/ directory).
+
+3.1.4 - jue nov 15 18:35:08 CET 2001
+------------------------------------
+
+ - Symbols defined in local tags are now hilighted in a special color.
+
+ - 'Open file' does not open an already open file now; if you
+   want to do it, you have a new 'Reopen...' option in the File menu.
+
+ - There is more than one possible external help program
+   for each file type.
+
+ - There are now two types of 'magic' words, one of them tested
+   before file extension checking.
+
+ - Fixed a bug when processing comments on languages where
+   the end of comment mark is the end of line (Perl, sh, etc.)
+
+ - Quotes are not processed inside comments in syntax hilighting.
+
+3.1.3 - vie oct  19 20:05:58 CEST 2001
+--------------------------------------
+
+ - New syntax hilighter for Ruby by Gabriel Emerson.
+
+ - Text to the left of the first line changes with a little
+   hint of what can be done (no more ^A Menu forever).
+
+ - Corrected a bug that made the menu bar being drawn
+   transparent.
+
+ - Fixed a bug when replacing text in all open files.
+
+ - Support for case insensitive languages in syntax hilighting.
+
+3.1.2 - dom sep 30 13:15:46 CEST 2001
+-------------------------------------
+
+ - New transparency support, for X terminal emulators that
+   support transparent / bitmapped backgrounds.
+
+ - All occurrences of strcpy() has been changed to strncpy().
+
+ - If an unnamed new text exists when the user presses F5
+   (or selects 'New' from the menu), it will be made
+   active instead of creating another empty one.
+
+ - Ctrl-O now shows the list of currently open files.
+
+3.1.1 - mié sep 12 16:55:39 CEST 2001
+-------------------------------------
+
+ - New syntax hilighter for sh/bash scripts by Sergey P. Vazulia.
+
+ - New command line switch to activate automatic indentation.
+ 
+ - Bug fixed in win32 menu dispatching code.
+
+3.1.0 - dom sep  2 09:12:00 CEST 2001
+-------------------------------------
+
+ - After usual tests, 3.1.rc6 becomes 3.1.0.
+
+3.1.rc6 - vie ago 31 14:08:24 CEST 2001
+---------------------------------------
+
+ - The tag finder now allows partial searches, showing a list
+   with all matching tags. When tag is entered empty, a complete
+   list of tag is shown.
+
+ - (win32 version) Copy and Paste now uses MS Windows clipboard.
+
+ - (win32 version) mp now has an icon!
+
+ - (win32 version) the toggle menu items are correctly marked
+   as checked/unchecked.
+
+ - (win32 version) Text entering dialog box correctly
+   displays the optional default value.
+
+ - (win32 version) Some arbitrary default values (as the
+   text font face or the path to the win32.hlp file) are now
+   changeable via the registry.
+
+3.1.rc5 - mar jul 31 20:43:25 CEST 2001
+---------------------------------------
+
+ - Finished code documenting and comment translation to english.
+
+ - Autodetected syntax highlight type is shown in status line.
+
+3.1.rc4 - sáb jul 28 08:36:07 CEST 2001
+---------------------------------------
+
+ - More code cleaning and internal integrity checks.
+
+ - Fixed a new bug in syntax hilight.
+
+3.1.rc3 - dom jul 22 17:06:29 CEST 2001
+---------------------------------------
+
+ - More code cleaning, specially in the syntax hilighter again.
+
+3.1.rc2 - lun jul 16 23:48:57 CEST 2001
+---------------------------------------
+
+ - Cosmetic changes in HTML syntax hilighter, splitted from XML/SGML.
+
+3.1.rc1 - jue jul 12 20:54:36 CEST 2001
+---------------------------------------
+
+ - New option to search & replace a string in all open files.
+
+ - Fixed a (known) bug in block marking, that could make copy fail
+   if editing a file with more that 65535 lines and 65535 columns
+   (well, it was ugly code anyway :-)
+
+ - First release candidate to 3.1.
+
+3.0.98n - vie may 25 22:30:25 CEST 2001
+---------------------------------------
+
+ - Bash-like history in all commands that ask for user input.
+
+ - Bug fixed when detecting cancel keys from file list.
+
+ - Tag search now edits as default the word over the cursor.
+
+ - 'Save as...' menu option edits the text's current name as default, if any.
+
+ - Another bug fixed in tag finding.
+
+ - Back to previous color scheme.
+
+3.0.98m - lun may 14 16:28:14 CEST 2001
+---------------------------------------
+
+ - Bug fixed in tag finding routine, causing some tags to be
+   parsed incorrectly.
+
+ - Bug fixed in pasting, that didn't honoured the word_wrap setting.
+
+ - Some cosmetic changes in the scrollbar.
+
+ - Alternate color is now the color by default.
+
+3.0.98l - mar abr 24 20:27:13 CEST 2001
+---------------------------------------
+
+ - New feature: templates (see README for details)
+
+ - New -bw|--monochrome switch.
+
+3.0.98k - jue abr 12 08:52:14 CEST 2001
+---------------------------------------
+
+ - New --mode to override syntax hilight detection (suggested by
+   Adrian Knoth).
+
+ - The open file list is not showed if no or just one file matched
+   the globbing.
+
+ - Got rid of GLOB_BRACE & GLOB_TILDE, that aren't available in
+   non-GNU glob() and wasn't being correctly used anyway.
+
+ - New compilation directives: WITHOUT_GLOB, for systems without
+   globbing function, and DEFAULT_TAB_SIZE, for setting the default
+   tab size.
+
+ - Makefile can now be used as is in BeOS.
+
+3.0.98j - mié mar 28 15:27:59 CEST 2001
+---------------------------------------
+
+ - New command line switch, --hardware-cursor or -hw, to make the
+   real ('hardware') cursor follow the edit one. This is not done
+   by default anymore.
+
+ - New command line switch, --tab-size or -ts, to change the obvious.
+
+ - New syntax hilight hints for detecting XML and SGML documents.
+
+ - Fixed a (possible) buffer overflow in mpv_readline().
+
+ - New --help option.
+
+ - Open file list shows each file's size in bytes.
+
+ - A few internal changes (mp_put_str() and other functions)
+
+ - The 'exit' menu command (unix version) now really exits.
+
+3.0.98i - lun feb 19 18:53:02 CET 2001
+--------------------------------------
+
+ - Unix/Linux version: when the file to open (F3 key) has at least an *, it
+   offers a selection list with the files matching the glob.
+
+3.0.98h - mié feb 14 21:56:17 CET 2001
+--------------------------------------
+
+ - Ctrl-F12 maximizes/unmaximizes the window in win32.
+
+ - The scroll bar now works in win32.
+
+3.0.98g - mar ene 30 18:58:38 CET 2001
+--------------------------------------
+
+ - More command line parsing fixes.
+
+3.0.98f - dom ene 28 11:50:42 CET 2001
+--------------------------------------
+
+ - Better command line options processing (just cosmetic).
+
+3.0.98e - mar ene 23 21:59:21 CET 2001
+--------------------------------------
+
+ - Cursor positioning with mouse under ncurses is now selectable with an
+   argument (--mouse) and disabled by default (I think it's better to
+   paste from another X Window with a third button click than just putting
+   the cursor here and there, and both things are impossible).
+
+ - Menu entries 'Word wrap', and 'Tab size' has now ellipsis at the end,
+   marking them as options that ask for more information.
+
+3.0.98d - dom ene  7 21:25:41 CET 2001
+--------------------------------------
+
+ - When a tag is found, the search string is copied into the search
+   buffer, to get back to tag by pressing ^L (search next).
+
+3.0.98c - lun dic 18 23:46:18 CET 2000
+--------------------------------------
+
+ - Bug fixed in parameter line parsing (--word-wrap and --col80 couldn't
+   be used together).
+
+3.0.98b - jue dic 14 19:23:53 CET 2000
+--------------------------------------
+
+ - Added a new menu option (Mark 80th Column) and argument switch
+   (--col80) to toggle a color mark in the 80th column. Not very useful,
+   but handy to know if you are indenting your code or mail message too far.
+
+3.0.98 - lun dic 11 16:47:51 CET 2000
+-------------------------------------
+
+ - Added a vertical scrollbar to reflect viewport position and scale.
+   As it's read-only (that is, it doesn't accept input), it must rather
+   be called a 'vertical gauge' or somewhat. Anyway, it shows the
+   relationship between what is seen on screen, cursor position and total
+   size of the document. It should accept mouse input, but not tonight.
+
+3.0.97b - lun dic  4 16:01:59 CET 2000
+--------------------------------------
+
+ - New --version-only argument, that just prints the version and exits.
+   Why for? you ask. Well, it's just for using it from artemus (my html
+   preprocessor) to update triptico.com. A really minor update.
+
+3.0.97a - mié nov 29 18:15:12 CET 2000
+--------------------------------------
+
+ - Changed cursor color from white on black to black on white +
+   inverse, as it wasn't working correctly with some terminal emulators.
+
+3.0.97 - mar nov 28 17:14:05 CET 2000
+-------------------------------------
+
+ - Included support for ncurses mouse events, where available. Left mouse
+   button positions the cursor and right button marks start / end of block.
+
+3.0.96b - jue nov 23 09:31:37 CET 2000
+--------------------------------------
+
+ - You can redirect a text to the standard input of a 'System Command...',
+   by preceding its name with a '|' (pipe). If not, it works as usual,
+   inserting the standard output of the command into the text. Useful for
+   printing a text (type |lpr or |a2ps), or mailing it (|mail user@host).
+
+3.0.96a - mié nov 22 15:58:17 CET 2000
+--------------------------------------
+
+ - Changed the colors (once again!). This must be the definitive set, at
+   least this week's.
+
+3.0.96 - lun nov 20 17:36:30 CET 2000
+-------------------------------------
+
+ - Syntax hilighting for source code comments is working (finally!).
+
+ - Bug fix: invoking a macro while recording it caused a SIGSEGV.
+
+3.0.95d - dom nov 19 23:23:22 CET 2000
+--------------------------------------
+
+ - Slightly touched mps_word_color() to treat as a literal number every
+   word preceded by - (minus).
+
+3.0.95c - sáb nov 18 11:13:51 CET 2000
+--------------------------------------
+
+ - New option --alt-color, a hack for choosing an alternate color profile
+   for low contrast displays (red/yellow menu).
+
+3.0.95b - sáb nov 18 09:35:30 CET 2000
+--------------------------------------
+
+ - Corrected a bug in Perl syntax highlighter.
+
+ - New syntax highlighter: rfc822, to highlight the headers of a rfc822
+   message (in order to use mp to edit messages with mutt and its
+   'edit_headers' option).
+
+3.0.95 - mar nov 14 19:59:41 CET 2000
+-------------------------------------
+
+ - Got rid of mp-synhi.conf. Syntax hilighting definition still sucks,
+   but at least mp doesn't depend of anything else. Please delete that .conf
+   file from /etc and forget about it (I know, you all hated it too).
+
+3.0.94w - dom nov 12 12:41:46 CET 2000
+--------------------------------------
+
+ - The 'w' in 3.0.94w is because these changes are only because of the
+   win32 version (it hadn't been modified in months).
+
+ - Slightly modified 'mpv_add_menu' function in unix version, to ignore
+   the & char and to let the menu first letter appear underlined in win32.
+   This thing was already done in mpv_add_item_menu, but not in the latter.
+
+ - Deleted some useless '#define' in win32 resource file (really old!).
+
+ - Option 'exec command' disabled in win32 version, as it can hang the
+   entire machine (good os, this ms windows thing), and it woudn't work
+   anyway as stdin/stdout in windows is crap (as almost anything).
+
+ - Options 'replace', 'word wrap' and 'tab size' work now. Replace is rather
+   odd, as it doesn't show a 2 text fields + a checkbox, but three different
+   dialog boxes, one after the other. A real shit, but it works.
+
+ - Spanish menu 'Fichero' changed to 'Archivo' (I don't like it, but seems
+   the most used).
+
+3.0.94c - sáb nov 11 20:43:20 CET 2000
+--------------------------------------
+
+ - Fixed a bug when using '-t' and '-w' arguments together.
+
+ - Fixed another bug in Tab Size option (check the return values, guy! :-)
+
+3.0.94b - vie nov 10 23:54:27 CET 2000
+--------------------------------------
+
+ - Menu options 'word wrap' and 'tab size' works now.
+
+3.0.94 - mié nov  8 20:31:36 CET 2000
+-------------------------------------
+
+ - New 'System command' menu option, to insert the standard output
+   of a program into the active document.
+
+ - Slightly changed menu color.
+
+ - Makefile includes a semi-automatic language selection
+   (can be overridden).
+
+3.0.93 - nov 5 2000
+-------------------
+
+ - Record Macro (F10) and Play Macro (F7) functions.
+
+ - New 'About...' menu option, showing the license.
+
+3.0.92 - oct 30 2000
+--------------------
+
+ - Ctags and Exuberant Ctags support, using -t switch (as in vi) and
+   from the popup menu.
+
+3.0.91 - sep 27 2000
+--------------------
+
+ - Started writing this changelog.
+
+ - New 'Help on Keys' menu option.
+
+3.0.90 - sep 7 2000
+-------------------
+
+ - Several minor bug fixes.
+
+3.0.89 and less...
+------------------
+
+ - Lost in the mist of time...
+
+1.1.12B - sep 11 1991
+---------------------
+
+ - My son Victor was born while I was working in an interface widget to show
+   a selection list as combo boxes.
+
+1.1 - jun 1991
+--------------
+
+ - Med splits in two main projects: MVE (the window / interface environment)
+   and the text editor itself.
+
+1.0 - March 1991
+----------------
+
+ - The very first version of mp, then called Med. An MSDOS exec, limited
+   to aprox. 400k in all text files in memory.

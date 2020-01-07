@@ -1,0 +1,18 @@
+gnu_regex.$(O): gnu_regex.c
+mp_conf.$(O): mp_conf.c mp_core.h mp_video.h mp_conf.h mp_lang.h mp_func.h \
+  mp_iface.h
+mp_core.$(O): mp_core.c mp_core.h gnu_regex.h
+mp_func.$(O): mp_func.c mp_core.h mp_video.h mp_func.h mp_iface.h mp_synhi.h \
+  mp_lang.h mp_conf.h
+mp_iface.$(O): mp_iface.c mp_core.h mp_conf.h mp_video.h mp_synhi.h \
+  mp_lang.h mp_func.h mp_iface.h
+mp_lang.$(O): mp_lang.c mp_core.h mp_lang.h mp_lang_en.inc mp_lang_es.inc \
+  mp_lang_de.inc mp_lang_it.inc mp_lang_nl.inc
+mp_synhi.$(O): mp_synhi.c mp_core.h mp_video.h mp_conf.h mp_synhi.h
+mpv_curses.$(O): mpv_curses.c mp_core.h mp_video.h mp_synhi.h mp_func.h \
+  mp_iface.h mp_lang.h mp_conf.h mpv_unix_common.c
+mpv_gtk.$(O): mpv_gtk.c mp_core.h mp_video.h mp_func.h mp_iface.h mp_lang.h \
+  mp_synhi.h mp_conf.h mp.xpm mpv_unix_common.c
+mpv_unix_common.$(O): mpv_unix_common.c
+mpv_win32.$(O): mpv_win32.c mp_core.h mp_video.h mp_func.h mp_lang.h \
+  mp_iface.h mp_synhi.h mp_res.h mp_conf.h

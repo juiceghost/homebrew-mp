@@ -1,0 +1,984 @@
+2004-03-18  Angel Ortega  <angel@astarot>
+
+	* makefile: Version 3.2.13 RELEASED.
+
+2004-03-14  Angel Ortega  <angel@astarot>
+
+	* TODO: Added entries to TODO.
+
+2004-03-11  Angel Ortega  <angel@astarot>
+
+	* TODO: Updated TODO.
+
+	* mp_conf.c, mp_iface.c, mp_iface.h:
+	The status line format can contain %d to include the date.
+
+	New configuration direction, strftime_format, to set the format
+	string for strftime() function (untested on win32).
+
+	* makefile: Updated makefile.
+
+2004-03-10  Angel Ortega  <angel@astarot>
+
+	* makefile: Updated makefile.
+
+	* mprc.sample: Added status_format documentation to mprc.sample.
+
+	* mp_conf.c, mp_iface.h:
+	The status line format string is settable via the configuration
+	file token 'status_format'.
+
+	* mp_iface.c: The status line is configurable via a format string.
+
+2004-03-07  Angel Ortega  <angel@astarot>
+
+	* makefile, mpv_gtk.c: Version 3.2.13-cvs STARTED.
+
+	Fixed a bug in GTK2 readline history.
+
+2004-03-03  Angel Ortega  <angel@astarot>
+
+	* AUTHORS: Updated AUTHORS.
+
+	* README.html: Documentation update.
+
+	* README: Added how to build the GTK 2.0 version in the README.
+
+	* makefile: Version 3.2.12 RELEASED.
+
+2004-03-01  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c:
+	New syntax highlighters for Gentoo eBuild files and Grub config file,
+	also contributed by Lars Strojny.
+
+2004-02-29  Angel Ortega  <angel@astarot>
+
+	* TODO, mp_func.c, mpv_gtk.c: Mouse wheel works under GTK 2.0.
+
+	New 'key' events "mouse-wheel-left" and "mouse-wheel-right".
+
+	* TODO: Updated TODO.
+
+	* mpv_gtk.c: More gtk 2.0 tweaks.
+
+	* mpv_gtk.c: More tweaking to mpv_list() problem.
+
+	* mpv_gtk.c: Strange SIGSEGVs in GTK 2.0 mpv_list() seem to be fixed.
+
+	* mpv_gtk.c, mpv_win32.c:
+	win32 argc/argv patch reverted, as it seems to crash when compiled
+	with lccwin32.
+
+	Gtk lists are centered.
+
+2004-02-25  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c: PHP synhi fixes patch from Lars Strojny.
+
+2004-02-23  Angel Ortega  <angel@astarot>
+
+	* mpv_win32.c:
+	Experimental win32 code using _argc and _argv (untested).
+
+	* makefile: Make the 'make gtk2' target build the rest of objects.
+
+	* mpv_gtk.c: Memory leaks in _() and __() fixed.
+
+	* mpv_gtk.c: Dead keys now work on GTK 2.0.
+
+	FIXME: _() and __() are memory leaks.
+
+	* TODO, mpv_gtk.c:
+	Strings interfacing with GTK 2 filtered from / to utf8.
+
+	* TODO, makefile, mpv_gtk.c: Vertical scrollbar adjustments.
+
+	New makefile target: make gtk2.
+
+	* mpv_gtk.c: Added GTK version in startup log.
+
+2004-02-22  Angel Ortega  <angel@astarot>
+
+	* TODO, mpv_gtk.c: Several (useless) tries to fix GTK 2.0 support.
+
+	Added entries to TODO.
+
+	* makefile, mpv_gtk.c: VERSION 3.2.12-cvs STARTED.
+
+	Tweaks to compile under GTK 2.0.
+
+2004-02-16  Angel Ortega  <angel@astarot>
+
+	* makefile: Version 3.2.11 RELEASED.
+
+2004-02-14  Angel Ortega  <angel@astarot>
+
+	* mp_core.c: Fixed a bug in auto-indent code.
+
+	* AUTHORS, mp_synhi.c:
+	New syntax highlight for Python by Richard Harris.
+
+2004-02-13  Angel Ortega  <angel@astarot>
+
+	* mp_conf.c, mp_iface.c, mp_iface.h, mprc.sample:
+	The ctags command can be configured.
+
+2004-02-03  Angel Ortega  <angel@astarot>
+
+	* README.mingw32: Documentation fixes.
+
+2004-02-02  Angel Ortega  <angel@astarot>
+
+	* README.mingw32:
+	Added instructions to build a win32 Minimum Profit binary using the
+	mingw32 cross-compiler under Linux (README.mingw32).
+
+	* mp.ico, mpv_win32.c:
+	Changed _argv to _argv_ to avoid collisions with the real _argv_ in win32.
+
+	The windows icon seemed to be broken (?).
+
+	* mpv_win32.c: Included commctrl.h in mpv_win32.c.
+
+2004-01-31  Angel Ortega  <angel@astarot>
+
+	* README.html, mpv_curses.c:
+	The reverse text in curses monochrome mode has been fixed.
+
+	* mp_synhi.c: Perl synhi fixes.
+
+2004-01-19  Angel Ortega  <angel@astarot>
+
+	* mprc-win32.sample:
+	A new MS Windows-friendly example config file (keybindings).
+
+	* mp_lang_nl.inc: Credits in language files were lost (again).
+
+	* makefile, mp_lang_nl.inc:
+	mp_doccer and grutatxt calls in 'make dist' are not mandatory.
+
+	More corrections to dutch translation by Rick.
+
+2004-01-12  Angel Ortega  <angel@astarot>
+
+	* mp_iface.c:
+	The destruction of the default menu when auto indent is set to 1 in
+	the configuration file has been fixed.
+
+	* README, mp_lang_nl.inc: Credits in translation files.
+
+	* mprc.sample: Reference to dutch translation made in mprc.sample.
+
+	* makefile: Version 3.2.11-cvs STARTED.
+
+	* mp_lang_es.inc, mp_lang_it.inc, mp_lang_nl.inc, mp_lang_de.inc, mp_lang_en.inc:
+	Dutch translation fixes by Rick van der Zwet.
+
+2004-01-08  Angel Ortega  <angel@astarot>
+
+	* makefile: Version 3.2.10 RELEASED.
+
+	* doc/mp_api.html, makefile, makefile.depend: Updated Makefile.
+
+	Updated dependencies.
+
+	Removed doc/mp_api.html from CVS.
+
+	* Changelog, Changelog.1, makefile: Renamed Changelog to Changelog.1.
+
+2004-01-03  Angel Ortega  <angel@astarot>
+
+	* makefile: Version change from 3.2.10m to 3.2.10-cvs.
+
+2004-01-02  Angel Ortega  <angel@astarot>
+
+	* mp_iface.c: Year changed in license banner.
+
+	* mp_iface.h, mp_lang.c, mp_lang.h, mp_lang_de.inc, mp_lang_en.inc, mp_lang_es.inc, mp_lang_it.inc, mp_lang_nl.inc, mp_res.h, mp_synhi.c, mp_synhi.h, mp_video.h, mpv_curses.c, mpv_gtk.c, mpv_unix_common.c, mpv_win32.c, mp_conf.c, mp_conf.h, mp_core.c, mp_core.h, mp_func.c, mp_func.h, mp_iface.c:
+	Changed year in copyrights.
+
+	* AUTHORS, mp_lang.c, mp_lang_nl.inc:
+	New dutch translation by Rick van der Zwet.
+
+	* mp_msg_de.h, mp_msg_en.h, mp_msg_es.h: Removed old language .h files.
+
+2003-11-25  Angel Ortega  <angel@astarot>
+
+	* mp_doccer/makefile:
+	Fixed a bug in makefile (doc directory was not being created).
+
+	* mp_doccer/COPYING, mp_doccer/makefile:
+	GPL license added to CVS (wow!).
+
+	* mp_doccer/makefile:
+	'make dist' includes mp_doccer version in the distribution file.
+
+	* mp_doccer/Changelog, mp_doccer/README, mp_doccer/makefile, mp_doccer/mp_doccer:
+	New Changelog file.
+
+	Documentation is installed in /usr[/local]/doc/mp_doccer.
+
+	Changed year to 2003 in copyrights.
+
+	* mp_doccer/mp_doccer: Code cleaning.
+
+2003-11-03  Angel Ortega  <angel@astarot>
+
+	* mp_doccer/mp_doccer:
+	Incremented version number and added comment in mp_doccer.
+
+	* mp_doccer/mp_doccer:
+	Empty lines in function descriptions are correctly shown in HTML.
+
+2003-11-01  Angel Ortega  <angel@astarot>
+
+	* mp_iface.c: Pressed unbound keys are logged.
+
+2003-10-30  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c: Added the .txt extension to the 'plain' synhi.
+
+2003-10-21  Angel Ortega  <angel@astarot>
+
+	* Changelog, makefile, mp_synhi.c:
+	Syntax highlighters are reordered to test programming
+	languages before text formats.
+
+2003-07-26  Angel Ortega  <angel@astarot>
+
+	* doc/mp_api.html, README.html, README: *** empty log message ***
+
+	* doc/mp_api.html, Changelog: Version 3.2.9 RELEASED.
+
+	* doc/mp_api.html, Changelog, README.html, makefile:
+	Updates to Changelog, makefile and documentation.
+
+	* mprc.sample: mprc.sample corrections.
+
+2003-07-24  Angel Ortega  <angel@astarot>
+
+	* TODO: Reference to /etc/mprc deleted from TODO.
+
+	* makefile: Fixed a bug in makefile.
+
+	* README.IRIX, makefile, mp_conf.c, mp_iface.c, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	Support for a global configuration file (/etc/mprc).
+
+2003-07-23  Angel Ortega  <angel@astarot>
+
+	* TODO: More this to be done added to TODO.
+
+2003-07-14  Angel Ortega  <angel@astarot>
+
+	* TODO: Updated TODO.
+
+	* makefile, mp_doccer/makefile: Makefile updated.
+
+2003-07-13  Angel Ortega  <angel@astarot>
+
+	* TODO:  * Ideas added to TODO.
+
+	* mpv_curses.c:
+	 * SIGTERM and SIGHUP ignoring in mpv_curses.c are not compiled
+	   in by default.
+
+2003-07-11  Angel Ortega  <angel@astarot>
+
+	* mpv_curses.c:
+	 * Fixed a bug in the fixed transparent color creation code.
+
+	* mpv_curses.c:
+	 * The color problem in IRIX seems to be a leak of transparent
+	   curses support.
+
+	* TODO, mpv_curses.c:  * Fixed the bug in _mpv_prompt.
+
+	* TODO:  * Updated TODO.
+
+2003-07-10  Angel Ortega  <angel@astarot>
+
+	* mpv_curses.c:  * Added tests for the curses virtual key KEY_ENTER (to
+	   work under Irix).
+
+2003-06-30  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c:
+	 * Spaces and tabs are a special case of separator; so, when
+	   separating words for synhi, spaces and tabs never gather to
+	   other separator chars, so they can be used as tokens.
+	 * The PostScript synhi has been simplified.
+
+2003-06-29  Angel Ortega  <angel@astarot>
+
+	* mpv_gtk.c:
+	 * The GTK version uses the 'fixed' font if the user selected
+	   font cannot be used.
+
+2003-06-25  Angel Ortega  <angel@astarot>
+
+	* TODO:  * Fixed a typo.
+
+2003-06-21  Angel Ortega  <angel@astarot>
+
+	* TODO:  * Added a 'TODO' file.
+
+2003-06-20  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c:  * Even more synhi tunings.
+
+	* mp_synhi.c:  * Syntax highlight tunings.
+
+2003-06-10  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c:  * Even more tuning to PostScript synhi.
+
+	* mp_synhi.c:  * More PostScript synhi tuning.
+
+	* mp_synhi.c:  * PostScript synhi improvements.
+
+	* mp_synhi.c:  * New PostScript synhi.
+
+2003-06-08  Angel Ortega  <angel@astarot>
+
+	* mp_iface.c:
+	 * mpi_plain_draw_all() fails when drawing the tabs, so it's
+	   disabled by now.
+
+2003-05-30  Angel Ortega  <angel@astarot>
+
+	* mprc.sample:  * A new color theme in the mprc.sample file.
+
+2003-05-29  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c:  * Small tunings to C and Perl synhi,s.
+
+2003-05-26  Angel Ortega  <angel@astarot>
+
+	* mp_lang.c:
+	 * The NO_LANGUAGES compilation directive now compiles only
+	   the english version.
+
+	* mp_synhi.c:
+	 * Fixed a bug in the HTML synhi (comments were incorrectly shown).
+
+	* mp_synhi.c:
+	 * Fixed a bug in SQL synhi that crashed mp when compiled with tcc.
+
+	* mp_synhi.c:  * -DNO_SYNHI includes just the plain mode (not none).
+
+	* mp_synhi.c:
+	 * Fixed a bug in separator testing when no synhi is present
+	   (i.e. compiled with -DNO_SYNHI).
+
+	* mp_iface.c:  * Screen was being drawn twice!!!
+
+	* mp_synhi.c:
+	 * A new NO_SYNHI compilation directive, to avoid compiling
+	   the embedded syntax highlight tokens.
+
+	* README, makefile, mp_conf.c, mp_core.c, mp_func.c, mp_iface.c, mp_lang.c, mp_synhi.c, mpv_curses.c, mpv_gtk.c, mpv_unix_common.c, mpv_win32.c:
+	 * Changed the year in the copyright lines.
+
+	* Changelog: Changed the year in the copyright lines.
+
+	* makefile:  * What the hell happened to the Changelog and makefile?
+
+	* Changelog: What the hell happened to the Changelog and makefile?
+
+	* mp_conf.h:  * A symbol redefinition warning was fixed.
+
+2003-04-24  Angel Ortega  <angel@astarot>
+
+	* mpv_gtk.c:  * More code cleaning.
+
+	* mp_iface.c, mp_iface.h, mpv_curses.c, mpv_gtk.c:
+	 * Code cleaning in the history API.
+
+	* mp_iface.c, mp_synhi.c:  * More synhi tuning.
+
+2003-04-14  Angel Ortega  <angel@astarot>
+
+	* mpv_curses.c:
+	 * The SIGWINCH handler now informs of the new window size (curses).
+
+2003-04-07  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c:  * C/C++ synhi tuning.
+
+2003-03-27  Angel Ortega  <angel@astarot>
+
+	* mp_core.c, mp_synhi.c:  * More synhi tunning.
+
+	* mp_core.c:  * Even more tuning to global word separators.
+
+	* mp_core.c:  * More tuning to global word separators.
+
+	* mp_synhi.c:  * More tuning to the php synhi.
+
+2003-03-26  Angel Ortega  <angel@astarot>
+
+	* mp_iface.c:
+	 * Fixed a line count mismatch when reading too long lines
+	   in mpi_grep().
+
+2003-03-17  Angel Ortega  <angel@astarot>
+
+	* mp_iface.c, mp_synhi.c:  * Several syntax highlight tunings.
+
+2003-03-16  Angel Ortega  <angel@astarot>
+
+	* makefile:  * 'make dist' excludes CVS directories.
+
+2003-03-12  Angel Ortega  <angel@astarot>
+
+	* mp_iface.c:
+	 * Uncommented the call to the simple version of mp_draw_all().
+
+	* mpv_gtk.c:  * The GTK about dialog is also centered.
+
+2003-03-09  Angel Ortega  <angel@astarot>
+
+	* mpv_gtk.c:  * Gtk dialogs are shown centered on the screen.
+
+	* mp_iface.c, mpv_gtk.c:
+	 * History in mpv_readline() for the GTK platform.
+
+2003-03-08  Angel Ortega  <angel@astarot>
+
+	* mp_core.c, mp_synhi.c:  * Changes to the separator strings.
+
+2003-03-02  Angel Ortega  <angel@astarot>
+
+	* mpv_curses.c:
+	 * Hitting tab (\t) in the curses version of mpv_readline()
+	   causes a globbing to be done (the same as typing * and ENTER).
+
+2003-02-24  Angel Ortega  <angel@astarot>
+
+	* Changelog: Version info added to Changelog.
+
+	* makefile:  * Applied patch to makefile from John Dunay for compiling
+	   MP into the Sharp Zaurus.
+
+	* mp_iface.c, mp_iface.h, mp_video.h, mpv_curses.c:
+	 * Changed mpv_readline in mpv_curses.c to use the new
+	   readline history _mpi_history[] MP texts instead of the old ad-hoc
+	   structures.
+
+	* makefile:  * Changed the version to 3.2.8m.
+
+	* mp_func.c, mprc.sample:  * Documentation to bind <all>.
+
+	* mp_func.c:  * The 'bind' configuration command can use a special
+	   value <all> to assign the same function to all keys
+	   (thought to be used with the <none> dummy function).
+
+2003-02-18  Angel Ortega  <angel@astarot>
+
+	* doc/mp_api.html, makefile:  * New 3.2.7 release (bugfixes).
+
+	* Changelog: New 3.2.7 release (bugfixes).
+
+	* mpv_curses.c:  * Fixed another critical bug in _mpv_open_file_list().
+
+	* mp_synhi.c:  * Fixed a critical bug in the syntax highlight code.
+
+	* mp_synhi.c:  * Even more tweaks to PHP synhi.
+
+	* mp_synhi.c:  * Updates to PHP synhi.
+
+	* makefile, mp_synhi.c:
+	 * Added <!-- and --> comments to PHP highlighter.
+
+	* Changelog: Added <!-- and --> comments to PHP highlighter.
+
+2003-02-10  Angel Ortega  <angel@astarot>
+
+	* doc/mp_api.html, README, README.html, makefile:
+	 * Regexes finally compile undef win32; 3.2.6 is out!!!
+
+	* Changelog: Regexes finally compile undef win32; 3.2.6 is out!!!
+
+	* README, README.html, makefile:
+	 * Sadly realized that gnu_regex.c doesn't compile in win32 (why?).
+	   So, this is not still 3.2.6, but 3.2.6-rc3.
+
+	* Changelog:
+	Sadly realized that gnu_regex.c doesn't compile in win32 (why?).
+	So, this is not still 3.2.6, but 3.2.6-rc3.
+
+	* README.solaris:  * Added 'README.solaris' to project.
+
+	* Changelog: Changelog updated.
+
+	* mprc.sample:  * The mprc.sample has been updated.
+
+	* mp_conf.c, mp_core.c, mp_core.h, mp_func.c, mp_iface.c, mp_lang_de.inc, mp_lang_en.inc, mp_lang_es.inc, mp_lang_it.inc, mp_synhi.c:
+	 * Merged the regex branch into trunk.
+
+2003-02-09  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.c:  * More tunning to synhi.
+
+	* mp_synhi.c:  * More tunning to synhi and comments.
+
+	* mp_iface.c, mp_synhi.c:  * Multiple comments per synhi seems to work.
+
+	* mp_core.c, mp_synhi.c, mp_synhi.h:
+	 * Several steps towards multiple comments in synhi modes.
+
+2003-02-08  Angel Ortega  <angel@astarot>
+
+	* mp_core.c:  * Automatic indentation works again.
+
+	* Changelog: Automatic indentation works again.
+
+2003-02-06  Angel Ortega  <angel@astarot>
+
+	* mp_core.c, mp_core.h, mp_iface.c, mp_synhi.c:
+	 * mp_seek_regex() is almost complete.
+
+	* mp_conf.c:  * New 'use_regex' configuration variable.
+
+	* mp_synhi.h:  * MAX_LOCAL_TOKENS set to 4096.
+
+	* mp_lang_de.inc, mp_lang_en.inc, mp_lang_es.inc, mp_lang_it.inc:
+	 * New locale messages.
+
+	* mp_func.c, mp_iface.c:  * New 'toggle-regex' editor command.
+
+	* gnu_regex.h, mp_core.c, mp_core.h:  * New _mp_regex flag.
+	 * mp_seek() has been splitted in _mp_seek_plain() and
+	   _mp_seek_regex().
+
+	* gnu_regex.h:  * Added gnu_regex.h to project.
+
+2003-02-04  Angel Ortega  <angel@astarot>
+
+	* mp_synhi.h:  * Increased MAX_LOCAL_TOKENS to 4096
+
+	* makefile:  * Changed version name.
+
+	* makefile:  * gnu_regex.c is not compiled in the CVS trunk.
+
+2003-01-27  Angel Ortega  <angel@astarot>
+
+	* makefile:  * New -D_LARGEFILE_SOURCE to Makefile.
+
+2003-01-18  Angel Ortega  <angel@astarot>
+
+	* README, README.html: changes to the README.
+
+	* makefile:
+	 - 'make pub' has been deleted in favour of the 'publicar' script.
+
+	* doc/mp_api.html, makefile:  - New 'pub' target in Makefile.
+
+	* doc/mp_api.html, AUTHORS, gnu_regex.c, makefile, mp_synhi.c:
+	 - New SQL syntax highlighter by Gabriel Emerson.
+
+	* Changelog: New SQL syntax highlighter by Gabriel Emerson.
+
+	* doc/mp_api.html, gnu_regex.c, makefile, mp_conf.c, mp_conf.h, mp_core.c, mp_core.h, mp_iface.c, mp_synhi.c, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - The internal representation of tabs has changed.
+	 - New 'source' configuration command, to include another
+	   configuration files.
+
+	* Changelog: The internal representation of tabs has changed.
+
+	New 'source' configuration command, to include another
+	configuration files.
+
+	* doc/mp_api.html, AUTHORS, makefile, mp_core.c, mp_core.h, mp_func.c, mp_iface.c, mp_iface.h, mp_lang.c, mp_lang.h, mp_lang_de.inc, mp_lang_en.inc, mp_lang_es.inc, mp_lang_it.inc, mp_synhi.c, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - Italian translation by lesion.
+	 - Fixed a font selection bug in the GTK version.
+	 - Fixed a menu rendering bug in the ncurses version.
+	 - Fixed a template insertion bug in all versions.
+	 - The Open File GTK dialog can now be cancelled by pressing ESC.
+	 - Internal improvements to mp_seek() and a new mp_mark_match() function.
+	 - New editor function, show-clipboard, to show the clipboard
+	   contents in a read-only editor window.
+	 - New editor function, show-log, to show the internal log
+	   in a read-only editor window.
+
+	* Changelog: Italian translation by lesion.
+
+	Fixed a font selection bug in the GTK version.
+
+	Fixed a menu rendering bug in the ncurses version.
+
+	Fixed a template insertion bug in all versions.
+
+	The Open File GTK dialog can now be cancelled by pressing ESC.
+
+	Internal improvements to mp_seek() and a new mp_mark_match() function.
+
+	New editor function, show-clipboard, to show the clipboard
+	contents in a read-only editor window.
+
+	New editor function, show-log, to show the internal log
+	in a read-only editor window.
+
+	* doc/mp_api.html, makefile, mpv_gtk.c:
+	 - Fixed a bug that caused occasional SIGSEGVs in GTK.
+
+	* Changelog: Fixed a bug that caused occasional SIGSEGVs in GTK.
+
+	* doc/mp_api.html, README, README.html, makefile, mp_iface.c, mp_lang.c, mp_synhi.c, mp_synhi.h, mp_video.h, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - File globbing when no file spec is specified fixed in win32.
+	 - Default language selection fixed in win32.
+	 - New -geometry parameter and configuration file variables
+	   to set geometry in GTK.
+
+	* Changelog:
+	File globbing when no file spec is specified fixed in win32.
+
+	Default language selection fixed in win32.
+
+	New -geometry parameter and configuration file variables
+	to set geometry in GTK.
+
+	* doc/Source_Code_Navigation_with_Minimum_Profit.txt, doc/mp_api.html, README, README.html, makefile, mp_conf.c, mp_core.c, mp_core.h, mp_func.c, mp_iface.c, mp_iface.h, mp_lang.c, mp_lang.h, mp_lang_de.inc, mp_lang_en.inc, mp_lang_es.inc, mp_synhi.c, mp_video.h, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_unix_common.c, mpv_win32.c:
+	 - mpv_readline() shows the default string as selected in GTK and Win32.
+	 - When a selection list has only one item, it's automatically
+	   selected in GTK and Win32 (this behaviour was already
+	   implemented in Curses).
+	 - If GTK cannot be initialised, the curses based Minimum Profit
+	   is called.
+	 - Bug fixed in startup language detection.
+	 - New exec-function() function, to run a Minimum Profit function
+	   (function function function...)
+	 - New sync() function, to save all modified texts to disk.
+	 - New grep() function, to grep a string in several files.
+
+	* Changelog:
+	mpv_readline() shows the default string as selected in GTK and Win32.
+
+	When a selection list has only one item, it's automatically
+	selected in GTK and Win32 (this behaviour was already
+	implemented in Curses).
+
+	If GTK cannot be initialised, the curses based Minimum Profit
+	is called.
+
+	Bug fixed in startup language detection.
+
+	New exec-function() function, to run a Minimum Profit function
+	(function function function...)
+
+	New sync() function, to save all modified texts to disk.
+
+	New grep() function, to grep a string in several files.
+
+	* doc/mp_api.html, mp.spec, mp_func.c, mp_lang_en.inc, mp_lang_es.inc, mp_video.h, mpv_curses.c, mpv_gtk.c, mpv_unix_common.c, mpv_win32.c, README, README.html, makefile, makefile.depend:
+	 - New open-under-cursor function, that takes the file name
+	   under the cursor and opens it (this function is back from
+	   3.1.2 version). By default bound to ctrl-enter.
+	 - When files open from the GTK open file dialog live
+	   in the default working directory, the path is converted
+	   from absolute to relative.
+	 - A substitute for glob() for Unix systems lacking of it.
+	 - When switching open files from the tabs (Gtk), the
+	   new open file is correctly redrawn.
+
+	* Changelog: New open-under-cursor function, that takes the file name
+	under the cursor and opens it (this function is back from
+	3.1.2 version). By default bound to ctrl-enter.
+
+	When files open from the GTK open file dialog live
+	in the default working directory, the path is converted
+	from absolute to relative.
+
+	A substitute for glob() for Unix systems lacking of it.
+
+	When switching open files from the tabs (Gtk), the
+	new open file is correctly redrawn.
+
+	* doc/mp_api.html, mpv_win32.c, AUTHORS, README, README.html, makefile, mp.spec, mp_func.c, mp_iface.c, mp_iface.h, mprc.sample, mpv_curses.c, mpv_gtk.c:
+	 - Optimizations to the GTK version (to avoid flickering).
+	 - Another bug fixed in the sample configuration file.
+	 - Non-existing open file error is now correctly reported in GTK.
+
+	* Changelog: Optimizations to the GTK version (to avoid flickering).
+
+	Another bug fixed in the sample configuration file.
+
+	Non-existing open file error is now correctly reported in GTK.
+
+	* doc/mp_api.html, makefile, mp_conf.c, mp_conf.h, mp_func.c, mp_func.h, mp_iface.c, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - Menus can be set from the configuration file.
+	 - Fixed a bug in the sample configuration file.
+	 - Check box menus really really work in GTK.
+	 - Menu hotkeys now are shown in win32.
+
+	* Changelog: Menus can be set from the configuration file.
+
+	Fixed a bug in the sample configuration file.
+
+	Check box menus really really work in GTK.
+
+	Menu hotkeys now are shown in win32.
+
+	* doc/mp_api.html, README, README.html, makefile, makefile.depend, mp_conf.c, mp_conf.h, mp_func.c, mp_iface.c, mp_lang_en.inc, mp_lang_es.inc, mp_synhi.c, mp_video.h, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - Colors can be defined from the configuration file.
+	 - Mouse wheel works in GTK.
+	 - Check box menus (kind of) work in GTK.
+	 - Mouse wheel works in Win32.
+
+	* Changelog: Colors can be defined from the configuration file.
+
+	Mouse wheel works in GTK.
+
+	Check box menus (kind of) work in GTK.
+
+	Mouse wheel works in Win32.
+
+	* doc/mp_api.html, makefile, mp_func.c, mp_lang.h, mp_lang_de.inc, mp_lang_es.inc, mp_synhi.c, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - Fixed an annoying bug in GTK key processing.
+	 - Fixed a minor translation text bug in the curses version.
+
+	* Changelog: Fixed an annoying bug in GTK key processing.
+
+	Fixed a minor translation text bug in the curses version.
+
+	* mp.xpm, mp_func.c, mp_func.h, mp_lang_en.inc:
+	 - New files added to CVS.
+
+	* doc/mp_api.html, mp_core.h, mp_iface.c, mp_iface.h, mp_lang.c, mp_lang.h, mp_lang_de.inc, mp_lang_es.inc, mp_video.h, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c, README, README.html, makefile, makefile.depend, mp.reg, mp_conf.c, mp_conf.h, mp_core.c:
+	 - A new GTK interface.
+	 - Several things are configurable from a personal
+	   configuration file as key bindings and other variables
+	   (menu and colors aren't, yet).
+
+	* Changelog: A new GTK interface.
+
+	Several things are configurable from a personal
+	configuration file as key bindings and other variables
+	(menu and colors aren't, yet).
+
+	* doc/mp_api.html, README, makefile, makefile.depend, mp.reg, mp_conf.c, mp_conf.h, mp_core.c, mp_core.h, mp_iface.c, mp_iface.h, mp_lang.c, mp_lang.h, mp_lang_de.inc, mp_lang_es.inc, mp_res.h, mp_res.rc, mp_synhi.c, mp_synhi.h, mp_video.h, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - First alpha of 3.2.x version.
+
+	* Changelog: First alpha of 3.2.x version.
+
+	* mp_doccer/makefile, doc/mp_api.html, README, README.html, makefile, makefile.depend, mp_iface.c, mp_iface.h, mp_lang.c, mp_lang.h, mp_lang_de.inc, mp_lang_es.inc, mp_res.rc, mp_synhi.c, mprc.sample, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - Instead of being a compile time option, language can be
+	   run-time selected.
+	 - Selection can be done using shift + movement key (win32).
+	 - Misc. code cleaning (argument processing).
+
+	* Changelog: Instead of being a compile time option, language can be
+	run-time selected.
+
+	Selection can be done using shift + movement key (win32).
+
+	Misc. code cleaning (argument processing).
+
+	* doc/mp_api.html, AUTHORS, README, makefile, mp_iface.c, mp_msg_de.h, mp_msg_en.h, mp_synhi.c, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - German translation by Peter Ludikovsky.
+	 - New syntax highlighter for .po files.
+	 - Fixed a minor bug in the file globbing code.
+	 - Minor tweaks to the win32 code.
+
+	* Changelog: German translation by Peter Ludikovsky.
+
+	New syntax highlighter for .po files.
+
+	Fixed a minor bug in the file globbing code.
+
+	Minor tweaks to the win32 code.
+
+	* doc/mp_api.html, makefile, mp_iface.c, mp_iface.h, mp_msg_en.h, mp_msg_es.h, mp_video.h, mpv_curses.c, mpv_win32.c:
+	 - New function and variable completion using the tags in Ctrl-S.
+	 - Minor color changes to the menu.
+
+	* Changelog:
+	New function and variable completion using the tags in Ctrl-S.
+
+	Minor color changes to the menu.
+
+	* doc/mp_api.html, makefile, mp_iface.c, mp_iface.h, mp_msg_en.h, mp_msg_es.h, mp_video.h, mpv_curses.c, mpv_win32.c:
+	 - New syntax highlighter for PHP by Geoff Youngs.
+	 - Much better signal handling (unix version), also by Geoff Youngs.
+	 - Treatment of numbers as strings (literals) in syntax
+	   highlighting can now be toggled per mode.
+	 - Some cosmetic changes (ugly titles on errors, etc.)
+
+	* Changelog: New syntax highlighter for PHP by Geoff Youngs.
+
+	Much better signal handling (unix version), also by Geoff Youngs.
+
+	Treatment of numbers as strings (literals) in syntax
+	highlighting can now be toggled per mode.
+
+	Some cosmetic changes (ugly titles on errors, etc.)
+
+	* doc/mp_api.html, makefile, mp_iface.c, mp_iface.h, mp_msg_en.h, mp_msg_es.h, mp_video.h, mpv_curses.c, mpv_win32.c:
+	 - New function and variable completion using the tags in Ctrl-S.
+	 - Minor color changes to the menu.
+
+	* Changelog:
+	New function and variable completion using the tags in Ctrl-S.
+
+	Minor color changes to the menu.
+
+	* mp_doccer/AUTHORS, mp_doccer/README, mp_doccer/mp_doccer, doc/mp_api.html, AUTHORS, README, README.html, makefile, mp_iface.c, mp_msg_en.h, mp_msg_es.h, mp_synhi.c, mp_synhi.h, mpv_curses.c:
+	 - New syntax highlighter for PHP by Geoff Youngs.
+	 - Much better signal handling (unix version), also by Geoff Youngs.
+	 - Treatment of numbers as strings (literals) in syntax
+	   highlighting can now be toggled per mode.
+	 - Some cosmetic changes (ugly titles on errors, etc.)
+
+	* Changelog: New syntax highlighter for PHP by Geoff Youngs.
+
+	Much better signal handling (unix version), also by Geoff Youngs.
+
+	Treatment of numbers as strings (literals) in syntax
+	highlighting can now be toggled per mode.
+
+	Some cosmetic changes (ugly titles on errors, etc.)
+
+	* mp_doccer/README, mp_doccer/mp_doccer, doc/mp_api.html, README, README.html, makefile, mp_iface.c, mpv_curses.c:
+	 - Fixed SIGSEGV when too much files to open (unix version)
+	 - Cosmetic fixes: ugly status line when a tag is not found
+	   from the command line (unix version)
+
+	* Changelog: Fixed SIGSEGV when too much files to open (unix version)
+
+	Cosmetic fixes: ugly status line when a tag is not found
+	from the command line (unix version)
+
+	* mp_doccer/README, mp_doccer/makefile, mp_doccer/mp_doccer, AUTHORS, README, makefile, mp_core.c, mp_core.h, mp_iface.c, mp_iface.h, mp_msg_en.h, mp_msg_es.h, mp_res.h, mp_res.rc, mp_synhi.c, mp_synhi.h, mp_video.h, mpv_curses.c, mpv_win32.c:
+	 - New mpi_plain_draw_all() function, a stripped down version
+	   of mpi_draw_all() that does not do any color tests. This
+	   should result in some optimizations.
+	 - Bug fixed: if a directory is opened, its contents is shown
+	   in the list instead of just stupidly open the directory
+	   (still does it wrong when getting a directory from the
+	   command line, fixing soon).
+	 - Bug fixed: a file contaning spaces in the name can be
+	   opened from the file list.
+	 - Case sensitivity in searches can be toggled now, and it works.
+	 - All open files are shown on the screen, on the title bar
+	   in the Unix version and on Mozilla-like tabs on the Win32
+	   version.
+
+	* Changelog: New mpi_plain_draw_all() function, a stripped down version
+	of mpi_draw_all() that does not do any color tests. This
+	should result in some optimizations.
+
+	Bug fixed: if a directory is opened, its contents is shown
+	in the list instead of just stupidly open the directory
+	(still does it wrong when getting a directory from the
+	command line, fixing soon).
+
+	Bug fixed: a file contaning spaces in the name can be
+	opened from the file list.
+
+	Case sensitivity in searches can be toggled now, and it works.
+
+	All open files are shown on the screen, on the title bar
+	in the Unix version and on Mozilla-like tabs on the Win32
+	version.
+
+	* README, makefile, mp.ico, mp_core.c, mp_iface.c, mp_synhi.c, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - Fixed the Win32 compilation, broken in 3.1.4.
+	 - Win32 icon is cuter then ever!
+	 - Improved detection of source comments.
+	 - Improved syntax hilight code (escaped quote marks, quotes that
+	   extend more than one line, ignored end of comments beyond the right
+	   margin, start of comments below the first visible line, etc.). The
+	   syntax highlighting should be no longer stinky.
+	 - Improvements to the mp_doccer tool (see tools/ directory).
+
+	* Changelog: Fixed the Win32 compilation, broken in 3.1.4.
+
+	Win32 icon is cuter then ever!
+
+	Improved detection of source comments.
+
+	Improved syntax hilight code (escaped quote marks, quotes that
+	extend more than one line, ignored end of comments beyond the right
+	margin, start of comments below the first visible line, etc.). The
+	syntax highlighting should be no longer stinky.
+
+	Improvements to the mp_doccer tool (see tools/ directory).
+
+	* README, makefile, mp_core.c, mp_iface.c, mp_iface.h, mp_msg_en.h, mp_msg_es.h, mp_synhi.c, mp_synhi.h, mp_video.h, mpv_curses.c, mpv_win32.c:
+	 - Symbols defined in local tags are now hilighted in a special color.
+	 - 'Open file' does not open an already open file now; if you
+	   want to do it, you have a new 'Reopen...' option in the File menu.
+	 - There is more than one possible external help program
+	   for each file type.
+	 - There are now two types of 'magic' words, one of them tested
+	   before file extension checking.
+	 - Fixed a bug when processing comments on languages where
+	   the end of comment mark is the end of line (Perl, sh, etc.)
+	 - Quotes are not processed inside comments in syntax hilighting.
+	 - First appearance of the mp_doccer script (version 0.1.1)
+
+	* Changelog:
+	Symbols defined in local tags are now hilighted in a special color.
+
+	'Open file' does not open an already open file now; if you
+	want to do it, you have a new 'Reopen...' option in the File menu.
+
+	There is more than one possible external help program
+	for each file type.
+
+	There are now two types of 'magic' words, one of them tested
+	before file extension checking.
+
+	Fixed a bug when processing comments on languages where
+	the end of comment mark is the end of line (Perl, sh, etc.)
+
+	Quotes are not processed inside comments in syntax hilighting.
+
+	First appearance of the mp_doccer script (version 0.1.1)
+
+	* AUTHORS, README, makefile, mp_iface.c, mp_msg_en.h, mp_msg_es.h, mp_synhi.c, mp_synhi.h, mp_video.h, mpv_curses.c, mpv_win32.c:
+	 - New syntax hilighter for Ruby by Gabriel Emerson.
+	 - Text to the left of the first line changes with a little
+	   hint of what can be done (no more ^A Menu forever).
+	 - Corrected a bug that made the menu bar being drawn transparent.
+	 - Fixed a bug when replacing text in all open files.
+	 - Support for case insensitive languages in syntax hilighting.
+
+	* Changelog: New syntax hilighter for Ruby by Gabriel Emerson.
+
+	Text to the left of the first line changes with a little
+	hint of what can be done (no more ^A Menu forever).
+
+	Corrected a bug that made the menu bar being drawn transparent.
+
+	Fixed a bug when replacing text in all open files.
+
+	Support for case insensitive languages in syntax hilighting.
+
+	* AUTHORS, COPYING, README, makefile, makefile.depend, mp.ico, mp.reg, mp_core.c, mp_core.h, mp_iface.c, mp_iface.h, mp_msg_en.h, mp_msg_es.h, mp_res.h, mp_res.rc, mp_synhi.c, mp_synhi.h, mp_video.h, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	 - New transparency support, for X terminal emulators that
+	   support transparent / bitmapped backgrounds.
+	 - All occurrences of strcpy() has been changed to strncpy().
+	 - If an unnamed new text exists when the user presses F5
+	   (or selects 'New' from the menu), it will be made
+	   active instead of creating another empty one.
+	 - Ctrl-O now shows the list of currently open files.
+	 - CVS Import.
+
+	* AUTHORS, COPYING, Changelog, README, makefile, makefile.depend, mp.ico, mp.reg, mp_core.c, mp_core.h, mp_iface.c, mp_iface.h, mp_msg_en.h, mp_msg_es.h, mp_res.h, mp_res.rc, mp_synhi.c, mp_synhi.h, mp_video.h, mpv_curses.c, mpv_gtk.c, mpv_win32.c:
+	New file.
+
+	* Changelog: New transparency support, for X terminal emulators that
+	support transparent / bitmapped backgrounds.
+
+	All occurrences of strcpy() has been changed to strncpy().
+
+	If an unnamed new text exists when the user presses F5
+	(or selects 'New' from the menu), it will be made
+	active instead of creating another empty one.
+
+	Ctrl-O now shows the list of currently open files.
+
+	CVS Import.
+

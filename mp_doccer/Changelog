@@ -1,0 +1,70 @@
+Changelog
+=========
+
+ mp_doccer - Documentation generator
+ Copyright (C) 1991-2003 Angel Ortega <angel@triptico.com>
+ Home Page: http://www.triptico.com/software/mp.html
+
+0.1.11
+------
+
+ - Blank lines in description are correctly shown in HTML.
+
+0.1.10
+------
+
+ - Function and variable descriptions are no longer mandatory,
+   blank lines allowed in description - Patch by Osman Keskin
+
+0.1.9
+-----
+
+ - New markup for function category and a new 'one big html page' format.
+
+0.1.8
+-----
+
+ - New method to avoid duplicate HTML pages.
+
+0.1.7
+-----
+
+ - New parameter to set author information.
+
+0.1.6
+-----
+
+ - Some formatting bugs fixed.
+
+0.1.5
+-----
+
+ - New output format: man, to build a man page for each entry.
+
+0.1.4b
+------
+
+ - Fixed an annoying bug that screwed up the synopsis.
+
+0.1.4
+-----
+
+ - New output format: sh, to build an executable shell script.
+
+0.1.3
+-----
+
+ - The search for a synopsis also ends in a line containing
+   only /** (i.e., the start of a new document entry).
+
+0.1.2
+-----
+
+ - Arguments and return values are decorated.
+ - An alternative synopsis can be defined created succesive
+   comment lines in the form /** text */ after the real synopsis.
+
+0.1.1
+-----
+
+ - Function names and arguments in description are decorated.

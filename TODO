@@ -1,0 +1,55 @@
+Minimum Profit TODO
+===================
+
+Bugs
+----
+
+ * Word wrap seems to be broken in some special cases.
+ * The usage() function should be platform-dependent and show
+   only usable command-line arguments (now it's a mess).
+ * The win32 version should have history in its readline.
+ * Autoindent doesn't work when word wrap is active.
+
+GTK 2.0
+~~~~~~~
+
+Is everything working yet?
+
+Enhancements
+------------
+
+ * Create a new synhi for diff files.
+ * New window pos / size must be logged in GTK.
+ * Create a man page. It should contain, at least, the editor functions
+   and the configuration file commands.
+ * By using the tags, each time the cursor is over one, the tag target
+   should be shown in the status line, allowing the function prototypes
+   to be immediately seen.
+ * Take a look at the elinks source to see how wheel-mouse can be
+   used in rxvt and xterm.
+ * The tag list should be browseable, as well as the list selection
+   file in the curses version.
+ * Tags, files to be open, templates and such things should be shown
+   in something like Mozilla's sidebar or so.
+ * Documentation. Lots of documentation.
+
+Config.sh-detectable cases
+--------------------------
+
+ * -lcurses or -lncurses.
+ * Curses use_default_colors(). Still necessary?
+ * gtk2 or gtk1.
+ * GLOB.
+ * working popen?
+ * --without-synhi, --without-i18n
+ * The damn regex thing. System regex? compile gnu_regex.c?
+
+Global defaults that can be written to config.h
+-----------------------------------------------
+
+ * DEFAULT_TAB_SIZE
+ * MAX_MACRO_SIZE
+ * AUTO_INDENT
+ * CONFIG_FILE_NAME
+ * MAX_WORDS_PER_SYNHI
+ * MAX_LOCAL_TOKENS

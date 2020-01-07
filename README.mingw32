@@ -1,0 +1,17 @@
+Building a Minimum Profit win32 executable with mingw32
+=======================================================
+
+To do a cross-compilation with the mingw32 package on a Debian GNU/Linux system:
+
+ # build almost all code. This will finally fail trying to compile
+ # mpv_curses.c; just ignore it.
+ make CC=i586-mingw32msvc-gcc AR=i586-mingw32msvc-ar CFLAGS=-DWITHOUT_REGEX
+
+ # build the win32 driver
+ i586-mingw32msvc-gcc -DVERSION="\"3.2.11-cvs\"" -DWITHOUT_REGEX -c mpv_win32.c
+
+ # build the resources
+ i586-mingw32msvc-windres mp_res.rc mp_res.o
+
+ # finally link into a windows executable
+ i586-mingw32msvc-gcc *.o -mwindows -lcomctl32 -o wmp.exe

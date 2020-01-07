@@ -1,0 +1,105 @@
+mp_doccer
+=========
+
+ Minimum Profit Tools: mp_doccer
+ Copyright (C) 2001/2003 Angel Ortega <angel@triptico.com>
+ Home Page: http://www.triptico.com/software/mp.html
+
+This software is GPL. NO WARRANTY. See file 'COPYING' for details.
+
+Description
+-----------
+
+This is a tool that travels a bunch of C code files and extracts specially
+marked information to build documentation texts. It's similar to Javadoc, the
+Linux Kernel 2.4.x Documentation and gtkdoc, but simpler / faster / nicer.
+
+mp_doccer expects to find comments inside the source code in the following
+manner:
+
+ /**
+  * function_name - brief description
+  * @arg1: optional argument 1
+  * @arg2: optional argument 2 (many)
+  *
+  * Longer description than
+  * can span many lines
+  * [category]
+  * [category]
+  */
+ type function_prototype(type)
+ /** optional alternative synopsis line */
+ /** another optional alternative synopsis line */
+ {
+
+for functions, or
+
+ /**
+  * variable_name - brief description
+  *
+  * Longer description than
+  * can span many lines
+  * [category]
+  * [category]
+  */
+ type variable_name;
+
+for variables. Note that the format for functions and variables is exactly the
+same, as the arguments are optional. The synopsis is taken from the end of
+the comment until a { or ; is found, so it works equally for variables and
+functions.
+
+The format is almost the same as the one used in the Linux Kernel 2.4.x
+Documentation. In fact, I thought the markup described there was clean and
+simple so I started using it; but after seeing that those tools needed a
+complete SGML toolkit, I decided to make my own (don't need no stinkin'
+SGML monster to build some crappy HTML files, thanks).
+
+If you want to put a synopsis other than the function definition, you
+can add after it (but before the {) in succesive lines between the /** and
+*/ markers.
+
+You can also add categories to each entry by appending lines surrounded
+by square brackets. You can have none, one or more for each function or
+variable. If you include categories, an index by category will be
+created for you in the output documentation.
+
+The arguments and return value can be decorated in the description and the
+alternative synopsis by prefixing it with a @ or %, respectively.
+
+The Minimum Profit source code is documented with this tool; take a look at
+it if you want examples.
+
+As of this version, there are four possible output formats:
+
+ * html: a tree of HTML files.
+ * man: a bunch of man pages in troff(1) format.
+ * localhelp: an executable sh script (localhelp.sh by default), that
+   gives help about the string sent as a command line argument.
+ * html1: all in one big HTML page.
+
+The 'html' format is the default. For 'html' and 'man', the -o parameter
+must be an existing directory. For 'localhelp' and 'html1', the file name
+of the executable sh script or HTML file.
+
+It's easy to use; just document your functions as described above and type
+
+    $ mp_doccer *.c -f html -o docdirectory --title="Your Program API"
+
+or
+    $ mp_doccer *.c -f man -o docdirectory --title="Your Program API"
+
+or
+    $ mp_doccer *.c -f localhelp -o myhelp.sh --title="Your Program API"
+
+or
+    $ mp_doccer *.c -f html1 -o yourapi --title="Your Program API"
+
+To Do
+-----
+
+ * The mp_doccer markup can also be used to document structs, so it should
+   be a good idea to have mp_doccer support it (now it doesn't).
+
+---
+Angel Ortega http://www.triptico.com

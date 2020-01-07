@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+ 	"http://www.w3.org/TR/REC-html40/loose.dtd">
+<html><head>
+<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+<title>Minimum Profit README</title>
+<!-- converted from text by grutatxt 2.0.5 on Wed Mar  3 16:10:55 2004 -->
+<body bgcolor=white text=black>
+<a name="minimum_profit_readme"></a>
+<h1 class=level1>Minimum Profit README</h1>
+<p>
+<pre>
+ Minimum Profit - Programmer Text Editor
+ Copyright (C) 1991-2004 Angel Ortega &lt;angel@triptico.com&gt;
+ Home Page: <a href="http://www.triptico.com/software/mp.html">http://www.triptico.com/software/mp.html</a>
+</pre>
+<p>
+This software is GPL. NO WARRANTY. See file 'COPYING' for details.
+<p>
+<a name="intro"></a>
+<h2 class=level2>Intro</h2>
+<p>
+If you are reading this (you are), you probably know what a text editor
+is and thus I won't explain what 'open file', 'search and replace',
+'tab size' and things like those, means. Only the special or not-so-
+intuitive features will be explained. In any other aspect, mp is just like
+the text editor you were using until today, before you've found this unknown
+jewel that will change your life.
+<p>
+Since version 3.2.x, several things are changeable from a personal
+configuration file as key bindings, colors, the menu and other variables.
+Take a look at mprc.sample for details. The configuration files for Unix
+systems are /etc/mprc and <code class=var>$HOME</code>/.mprc (see below to know how to set it
+in Win32).
+<p>
+Minimum Profit includes several interfaces:
+<p>
+<table>
+<tr><td valign=top><strong class=term>curses</strong>&nbsp;&nbsp;</td><td valign=top>the good old text interface. You need any Unix (Linux, Solaris, any BSD...), the curses or ncurses library and GNU Make. This interface can also be compiled under BeOS (you also need ncurses).
+<tr><td valign=top><strong class=term>GTK</strong>&nbsp;&nbsp;</td><td valign=top>You need any X11 system, GNU Make and the GTK+ libraries installed. Support for GTK versions 1.2 and 2.0 is provided.
+<tr><td valign=top><strong class=term>Win32</strong>&nbsp;&nbsp;</td><td valign=top>You need Microsoft Windows 95 or later, the lccwin32 compiler and the GNU Make build utility (preferably, the one that comes with DJGPP).
+</table>
+<p>
+<a name="compiling_&amp;_installing"></a>
+<h2 class=level2>Compiling &amp; Installing</h2>
+<p>
+To compile, just run
+<p>
+<pre>
+	 $ make
+</pre>
+<p>
+and it should build correctly, no errors nor warnings.
+<p>
+If you don't have ncurses but the plain curses (as in many Unix flavours), run
+<p>
+<pre>
+	 $ make CURSES=curses
+</pre>
+<p>
+Also, if you are on Unix and don't have GTK, make will complain; you can
+safely ignore it (the curses version will be correctly compiled) or use
+<p>
+<pre>
+	 $ make mp
+</pre>
+<p>
+Also, if you (for whatever reasons) only want the GTK interface, do
+<p>
+<pre>
+	 $ make gmp
+</pre>
+<p>
+The previous make target builds the GTK 1.2 version; to build the GTK 2.0
+one, just do
+<p>
+<pre>
+	 $ make gtk2
+</pre>
+<p>
+To install it, as root, type
+<p>
+<ol><li>make install
+</ol>
+<p>
+and it will be instaled in /usr/local/bin. If you want it at /usr/bin, do
+<p>
+<ol><li>make install PREFIX=/usr
+</ol>
+<p>
+If you need to build mp static (to use it in, for example, rescue distros),
+just compile it as
+<p>
+<pre>
+	 $ make LDFLAGS=-static
+</pre>
+<p>
+If you use win32 and a GNU make version that is not the one that comes
+with DJGPP (for example, the cygwin32 one) your system won't be correctly
+autodetected; you must use
+<p>
+<pre>
+	 $ make SYSTEM=WIN32
+</pre>
+<p>
+to force it to be win32 and use the lccwin32 compiler.
+<p>
+If you have an odd Unix system lacking the <code class=funcname>glob()</code> function, do
+<p>
+<pre>
+	 $ make CFLAGS=-DWITHOUT_GLOB
+</pre>
+<p>
+If you have ncurses and the compilation process complains about an unresolved
+symbol '<code class=funcname>use_default_colors()</code>', you have an old ncurses; upgrade it or use
+<p>
+<pre>
+	 $ make CFLAGS=-DNO_TRANSPARENCY
+</pre>
+<p>
+Of course, you can also use this if transparency on X terminals annoys you.
+<p>
+<a name="tags"></a>
+<h2 class=level2>Tags</h2>
+<p>
+mp supports tags as in vi. This means that you can do
+<p>
+<pre>
+	 mp -t ShootPlasmaGun
+</pre>
+<p>
+and it will open the source code file that includes a symbol (function or
+variable) called ShootPlasmaGun and that resides in the current directory.
+As vi, mp uses the 'tags' file created by the program 'ctags'. There is an
+awesome version of this program, called 'Exuberant Ctags', that is able to
+recognize other languages that C, notably Perl, Python and millions of
+other crap.
+<p>
+Note that mp just needs ctags for building the 'tags' file, not for using
+it. This means that, though you don't have ctags in your win32 machine and
+you cannot create the tags file, you can use one created in a real
+operating system.
+<p>
+Tags are searched as substrings; if more than one tag containing (in any
+position) the string you pass is found, a list will be shown to allow you
+to select the one you want. If you pass an empty string, all the tags in
+the current directory will be shown, making mp look like a very sexy
+code browser.
+<p>
+<a name="syntax_highlighting"></a>
+<h2 class=level2>Syntax highlighting</h2>
+<p>
+Mp tries to detect the file type by looking inside its contents and,
+if failed, by its extension. It correctly detects HTML, XML, C, C++, Perl,
+Man pages, RFC822 mail messages, Shell scripts, Ruby, PHP and .po files.
+File type detection is also used in inline help.
+<p>
+<a name="inline_help"></a>
+<h2 class=level2>Inline help</h2>
+<p>
+If you press F1, mp takes the word below the cursor and executes man
+sending it as an argument (unless the file is recognized as Perl code,
+where 'perldoc -f' is used). A new help page is opened in a new (read-only)
+window. You can close it as a normal text or swap back to the original
+source. On Win32, it's used differently: it spawns Winhelp.exe with the
+word as a parameter to the .hlp file defined in the configuration variable
+win32_help_file.
+<p>
+<a name="regular_expressions"></a>
+<h2 class=level2>Regular expressions</h2>
+<p>
+By default, Minimum Profit makes its search and replace functions using
+plain text searching. If you want to use regular expressions, you can
+activate the 'Use regular expressions' flag in the Search menu or include
+the 'use_regex: 1' key in the configuration file to use always use them.
+Regular expressions are not set by default for historical reasons.
+<p>
+<a name="macro"></a>
+<h2 class=level2>Macro</h2>
+<p>
+Macro (or learning) mode is activated when you hit F10 (you'll notice that you
+are recording a macro by an 'R' letter in the status line). Since then, any
+key you type will be recorded in an internal buffer. To stop recording, just
+hit F10 again. To recall the recorded keys, go to wherever you want, press
+F7 and they will be inserted in the current cursor position (macros are
+silently limited to 1024 bytes). Any letter or cursor movement key can be
+recorded.
+<p>
+<a name="using_mp_with_mutt"></a>
+<h2 class=level2>Using mp with mutt</h2>
+<p>
+These are the options I use in my .muttrc:
+<p>
+<pre>
+	 set editor="mp --word-wrap 75 --col80 --mode mail"
+</pre>
+<p>
+This line forces mp execution with word wrapping on column 75 and
+marking the 80th column for correct message formatting. The --mode mail
+switch orders mp to bypass any syntax hilight detection and force it to treat
+the file as a mail message, beautifying message headers and '&gt;' quotes. Now
+you can write / reply to all your spam in fancy colors.
+<p>
+<a name="executing_system_commands"></a>
+<h2 class=level2>Executing system commands</h2>
+<p>
+The 'System command...' menu option lets you run system commands. If you
+run a program as is (for example, 'date'), mp just reads its standard
+output and inserts it into cursor position. If you precede it by a |
+(pipe) symbol (as in '|lpr') it runs the command sending the current file
+being edited as the program's standard input. This is useful for printing
+or sending a text by email. Of course, this doesn't work in win32 (even if
+it did, it couldn't be useful. How many win32 programs makes standard
+I/O, or any other standard thing?).
+<p>
+<a name="about_mp_&amp;_tabs"></a>
+<h2 class=level2>About mp &amp; tabs</h2>
+<p>
+<strong class=strong>NOTE:</strong> Minimum Profit used to have a special treatment for tabulators
+(\t characters) that could not work as expected in some environments, so
+this paragraph was a caveat about it. This is no longer true; you can
+use tabs as in every other text editor of the world.
+<p>
+<a name="templates"></a>
+<h2 class=level2>Templates</h2>
+<p>
+Aren't you fed up of filesystem travelling in search of a block of text
+you usually insert into every file (like the license covering your
+software)? I am. No more find &amp;&amp; grep &amp;&amp; cut &amp;&amp; paste. Say no to it just now.
+<p>
+Mp templates are stored in <code class=var>$HOME</code>/.mp_templates and have a name (a line of
+text preceded by two % characters) and a body of text. When you hit
+Ctrl-U, all template names you defined are showed on screen in a list for
+you to just move over and push ENTER and by magical arts be inserted into
+current opened file's cursor position. And for the sake of sloth, you can
+open the template file directly from the Edit menu.
+<p>
+<a name="additional_tools"></a>
+<h2 class=level2>Additional tools</h2>
+<p>
+The tools/ directory holds mp_doccer, a small Perl script that extracts
+specially marked comments from C source code files and builds beautiful
+HTML documentation. See the README file there.
+<p>
+<a name="win32_version_configuration"></a>
+<h2 class=level2>Win32 version configuration</h2>
+<p>
+Several parameters could be set in the Win32 registry in previous versions
+of Minimum Profit; now, there is only one value to register, as the other
+ones can be defined in the configuration file: the HOME directory.
+So, the only key is "HKEY_CURRENT_USER\Software\Minimum Profit\Home", and
+is supposed to hold the drive:\path where the .mprc configuration file
+can be found (so it can be shared between machines or even platforms).
+All other run-time values can be configured there. The mp.reg file,
+included in the source code or binary distribution package, can be used to
+set this value.
+<p>
+<a name="misc_notes"></a>
+<h2 class=level2>Misc Notes</h2>
+<p>
+<ul><li>There are many other programs called mp, as the Mail Processor, MultiPlan and many more. Of course, this is just a problem of the polluted two-letter namespace for programs and the coincidence is purely incidental and accidental. Also, there are many software companies with names similar to mp or med or pro or medpro, but no one is related to this program. Many people (i.e. Debian people) use to rename it to mped to avoid collisions.
+<li>Though it's said that mp stands for Multieditor Professional, other voices relate it to 'Minimum Profit', 'Miscellaneous Pathology' and 'Meaningless Program'. Other user contributions are 'Mammuthus Primigenius', 'More Procrastination' and 'Multiple Personalities'.
+<li>Martin Döring helped debugging the buggy Win32 version (thanks).
+<li>Of course, there is an easter egg. All cool programs have one.
+</ul>
+<p>
+<hr size=1 noshade>
+Angel Ortega <a href="http://www.triptico.com">http://www.triptico.com</a>
+</body></html>

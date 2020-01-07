@@ -1,0 +1,875 @@
+#!/usr/bin/perl
+
+#
+# mp_doccer - Documentation generator
+#
+# Copyright (C) 2001/2003      Angel Ortega <angel@triptico.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+#
+# http://www.triptico.com
+#
+
+$VERSION = "0.1.11";
+
+use Getopt::Long;
+
+# output format
+$format = "html";
+
+# output file or directory
+$output = "";
+
+# documentation title
+$title = "API";
+
+# man section
+$man_section = "3";
+
+# function (and variable) documentation database
+@functions = ();
+
+# function categories
+%categories = ();
+
+# the style sheet
+$css = "";
+
+# prefix for generated files
+$file_prefix = "";
+
+# author's name and email
+$author = "";
+
+# parse options
+if(!GetOptions( "f|format=s"		=>	\$format,
+		"o|output=s"		=>	\$output,
+		"c|css=s"		=>	\$css,
+		"t|title=s"		=>	\$title,
+		"v|version"		=>	\$version,
+		"p|prefix=s"		=>	\$file_prefix,
+		"m|man-section=s"	=>	\$man_section,
+		"a|author=s"		=>	\$author,
+		"h|help"		=>	\$usage)
+	      or $usage)
+{
+	usage();
+}
+
+if($version)
+{
+	print "$VERSION\n"; exit(0);
+}
+
+# list of source code files
+@sources = sort(@ARGV) or usage();
+
+extract_doc(@sources);
+
+# create
+if($format eq "html")
+{
+	format_html();
+}
+elsif($format eq "man")
+{
+	format_man();
+}
+elsif($format eq "localhelp")
+{
+	format_sh();
+}
+elsif($format eq "html1")
+{
+	format_html_1();
+}
+else
+{
+	print "Invalid output format '$format'\n";
+	print "Valid ones are: html man localhelp html1\n";
+}
+
+
+# ###################################################################
+
+
+sub extract_doc
+# extract the documentation from the source code files
+{
+	my (@sources) = @_;
+	my (%func_idx);
+
+	foreach my $f (@sources)
+	{
+		unless(open F, $f)
+		{
+			warn "Can't open $_";
+			next;
+		}
+
+		# $f=$1 if $f =~ /\/([^\/]*)$/;
+
+		print("Processing $f...\n");
+
+		while(<F>)
+		{
+			my ($fname,$bdesc,@arg,@argdesc,$desc,
+			    $syn,$altsyn,$uniq,@category);
+
+			chop;
+
+			next unless /^\s*\/\*\*$/;
+
+			chop($_ = <F>) or last;
+
+			# extract function name and brief description
+			($fname,$bdesc) = /([\w_]*) - (.*)/;
+
+			# possible arguments
+			for(;;)
+			{
+				chop($_ = <F>) or goto eof;
+				last unless /^\s+\*\s+\@([^:]*):\s+(.*)/;
+
+				push(@arg, $1);
+				push(@argdesc, $2);
+			}
+
+			goto skipdesc if /^\s+\*\//;
+
+			# rest of lines until */ are the description
+			for(;;)
+			{
+				chop($_ = <F>) or goto eof;
+				last if /^\s+\*\//;
+
+				# a line with only [text] is a category
+				if(/^\s+\*\s+\[(.*)\]$/)
+				{
+					my ($sec) = $1;
+
+					my ($s) = $categories{$sec};
+
+					unless(grep /^$fname$/, @$s)
+					{
+						push(@$s, $fname);
+						$categories{$sec} = $s;
+					}
+
+					push(@category, $sec);
+
+					next;
+				}
+
+				/^\s+\*\s*(.*)$/;
+				$desc .= $1 . "\n";
+			}
+
+			skipdesc:
+
+			# rest of info until a { or ; is the synopsis
+			for(;;)
+			{
+				chop($_ = <F>) or goto eof;
+
+				if(/^([^{;]*)[{;]/)
+				{
+					$syn .= $1 . "\n";
+					last;
+				}
+				elsif(/^\s\/\*\*$/)
+				{
+					last;
+				}
+				elsif(/^\s*\/\*\*(.*)\*\//)
+				{
+					$altsyn .= $1 . "\n";
+				}
+				else
+				{
+					$syn .= $_ . "\n";
+				}
+			}
+
+			# fix synopsis to have a trailing ;
+			$syn =~ s/^(\s*)//;
+			$syn =~ s/(\s*)$//;
+			$syn .= ";";
+
+			# calculate a unique name
+			# (to avoid collisions in file names)
+			if($func_idx{$fname})
+			{
+				$uniq = $fname . $func_idx{$fname}++;
+			}
+			else
+			{
+				$uniq = $fname;
+				$func_idx{$fname} = 1;
+			}
+
+			my $func = {};
+
+			# store
+			$func->{'file'} = $f;
+			$func->{'func'} = $fname;
+			$func->{'bdesc'} = $bdesc;
+			$func->{'arg'} = \@arg if @arg;
+			$func->{'argdesc'} = \@argdesc if @argdesc;
+			$func->{'desc'} = $desc;
+			$func->{'syn'} = $syn;
+			$func->{'altsyn'} = $altsyn if $altsyn;
+			$func->{'uniq'} = $uniq;
+			$func->{'category'} = \@category if @category;
+
+			push(@functions, $func);
+		}
+
+		eof:
+
+		close F;
+	}
+}
+
+
+sub usage
+{
+	print << "EOF";
+mp_doccer $VERSION - C Source Code Documentation Generator
+Copyright (C) 2001/2003 Angel Ortega <angel\@triptico.com>
+This software is covered by the GPL license. NO WARRANTY.
+
+Usage: mp_doccer [options] c_code_files...
+
+Options:
+
+	-o|--output=dest	Directory or file where the
+				documentation is generated.
+	-t|--title="title"	Title for the documentation.
+	-c|--css="css URL"	URL to a Cascade Style Sheet
+				to include in all HTML files.
+	-f|--format="format"	Format for the generated
+				documentation.
+				Valid ones are:
+				html man localhelp html1
+	-p|--prefix="prefix"	Prefix for the name of the
+				generated files. Main index
+				file will also have this name.
+	-a|--author="author"	Sets author info (as name and email)
+				to be included in the documentation.
+	-m|--man-section="sect" Section number for the generated
+				man pages.
+	-v|--version		Shows version.
+	-h|--help		This help.
+
+This program is part of the Minimum Profit Text Editor.
+http://www.triptico.com/software/mp.html
+
+EOF
+	exit(0);
+}
+
+
+sub format_html
+# create multipage html documents
+{
+	my ($o,$h);
+	my ($pf) = "";
+
+	$output = "." unless $output;
+	$output =~ s/\/$//;
+
+	unless(-d $output)
+	{
+		print "$output must be a directory; aborting\n";
+		exit(1);
+	}
+
+	# build the header
+	$h = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\"\n\"http://www.w3.org/TR/REC-html40/loose.dtd\">\n";
+	$h .= sprintf("<!-- generated by mp_doccer $VERSION on %s -->\n",scalar(localtime()));
+	$h .= "<!-- mp_doccer is part of the Minimum Profit Text Editor -->\n";
+	$h .= "<!-- http://www.triptico.com/software/mp.html -->\n\n";
+	$h .= "<meta name='author' content='$author'>\n" if $author;
+
+	# create the table of contents
+	open TOC, $file_prefix ? ">$output/$file_prefix.html" : ">$output/index.html"
+		or die "Error: $!";
+
+	print TOC $h;
+	print TOC "<head><title>$title</title></title>\n";
+	print TOC "<link rel=StyleSheet href='$css' type='text/css'>\n" if $css;
+	print TOC "<h1>$title</h1>\n";
+
+	$pf = $file_prefix . "_" if $file_prefix;
+
+	if(scalar(keys(%categories)))
+	{
+		print TOC "<h2>By Category</h2>\n";
+
+		foreach my $sn (sort keys %categories)
+		{
+			my ($s) = $categories{$sn};
+
+			print TOC "<h3>$sn</h3><p>\n";
+			print TOC "<blockquote>\n";
+
+			for(my $n = 0;$n < scalar(@$s);$n++)
+			{
+				print TOC ", " if $n;
+				print TOC "<a href='${pf}$$s[$n].html'>$$s[$n]</a>";
+			}
+
+			print TOC "</blockquote>\n";
+		}
+	}
+
+	print TOC "<h2>By Source</h2>\n";
+
+	for(my $n = 0;$n < scalar(@functions);$n++)
+	{
+		my ($f,$syn);
+
+		$f = $functions[$n];
+
+		if($f->{'file'} ne $o)
+		{
+			print TOC "</blockquote>\n" if $o;
+
+			# write new entry in toc
+			print TOC "<a name='$f->{'file'}'></a>\n";
+			print TOC "<h3>$f->{'file'}</h3>\n";
+
+			$o = $f->{'file'};
+			print TOC "<blockquote>\n";
+		}
+
+		# write the function entry in TOC
+		print TOC
+		"<a href='${pf}$f->{'uniq'}.html'>$f->{'func'}</a> - $f->{'bdesc'}<br>\n";
+
+		# write the file
+		open F, ">$output/${pf}$f->{'uniq'}.html" or die "Error: $!";
+
+		print F $h;
+		print F "<head><title>$f->{'func'}</title></title>\n";
+		print F "<link rel=StyleSheet href='$css' type='text/css'>\n" if $css;
+		print F "<table width='100%'><tr>\n<td width='33%' align=left>";
+
+		if($n)
+		{
+			my ($f2) = $functions[$n-1];
+			print F "<a href='${pf}$f2->{'uniq'}.html'>Prev</a><br>$f2->{'func'}";
+		}
+		else
+		{
+			print F "Prev";
+		}
+
+		print F "</td><td width='33%' align=center>";
+		print F "<b>$title</b><br>";
+		printf F "<a href='%s.html#$f->{'file'}'>$f->{'file'}</a>",
+			$file_prefix ? "$file_prefix" : "index";
+
+		print F "</td><td width='33%' align=right>";
+
+		if($n < scalar(@functions)-1)
+		{
+			my ($f2) = $functions[$n + 1];
+			print F "<a href='${pf}$f2->{'uniq'}.html'>Next</a><br>$f2->{'func'}";
+		}
+		else
+		{
+			print F "Next";
+		}
+
+		print F "</td></tr></table>\n";
+
+		print F "<h1>$f->{'func'}</h1>\n";
+
+		print F "<h2>Name</h2>\n";
+		print F "<strong class=funcname>$f->{'func'}</strong> - $f->{'bdesc'}\n";
+
+		print F "<h2>Synopsis</h2>\n";
+
+		$syn = defined($f->{'altsyn'}) ? $f->{'altsyn'} : $f->{'syn'};
+
+		# synopsis decoration
+		$syn =~ s/\b$f->{'func'}\b/\<strong class=funcname\>$f->{'func'}\<\/strong\>/g;
+
+		$syn =~ s/@([\w]+)/<em class=funcarg>$1<\/em>/g;
+		$syn =~ s/\%([\w]+)/<em class=funcret>$1<\/em>/g;
+
+		if($f->{'arg'})
+		{
+			my ($l);
+
+			$l = $f->{'arg'};
+
+			foreach my $a (@$l)
+			{
+				$syn =~ s/\b$a\b/\<em class=funcarg\>$a\<\/em\>/g;
+			}
+		}
+
+		print F "<pre class=funcsyn>\n$syn</pre>\n";
+
+		if($f->{'arg'})
+		{
+			my ($a,$d);
+
+			$a = $f->{'arg'};
+			$d = $f->{'argdesc'};
+
+			print F "<h2>Arguments</h2>\n";
+			print F "<dl>";
+
+			for(my ($n) = 0;$n < scalar(@$a);$n++)
+			{
+				print F "<dt><em class=funcarg>$$a[$n]</em>";
+				print F "<dd>$$d[$n]\n";
+			}
+
+			print F "</dl>\n";
+		}
+
+		if($f->{'desc'})
+		{
+			print F "<h2>Description</h2>\n";
+
+			# take the description
+			my ($desc) = $f->{'desc'};
+
+			# decorate function names
+			$desc =~ s/([\w_]+\(\))/<code class=funcname>$1<\/code>/g;
+
+			# decorate function arguments
+			$desc =~ s/@([\w_]+)/<em class=funcarg>$1<\/em>/g;
+
+			# decorate return values
+			$desc =~ s/\%([\w_]+)/<em class=funcret>$1<\/em>/g;
+
+			# replace blank lines
+			$desc =~ s/\n\n/\n<p>\n/gs;
+
+			print F "<p>$desc\n";
+
+			if($f->{'category'})
+			{
+				my ($s) = $f->{'category'};
+
+				print F "<h3>Categories</h3><p>\n";
+
+				for(my ($n) = 0;$n < scalar(@$s);$n++)
+				{
+					print F ", " if $n;
+					print F "$$s[$n]";
+				}
+
+				print F "\n";
+			}
+		}
+
+		close F;
+	}
+
+	print TOC "</blockquote>\n";
+
+	print TOC "<p>$author<br>\n" if $author;
+
+	close TOC;
+}
+
+
+sub format_sh
+# create a help shell script
+{
+	my ($o,$h);
+
+	$output = "localhelp.sh" unless $output;
+
+	open F, ">$output" or die "Error: $!";
+
+	# build the header
+
+	print F "#!/bin/sh\n\n";
+	printf F "# Help program generated by mp_doccer $VERSION on %s\n",scalar(localtime());
+	print F "# mp_doccer is part of the Minimum Profit Text Editor\n";
+	print F "# http://www.triptico.com/software/mp.html\n\n";
+
+	print F "case \"\$1\" in\n";
+
+	for(my $n = 0;$n < scalar(@functions);$n++)
+	{
+		my ($f,$syn);
+
+		$f = $functions[$n];
+
+		print F "$f->{'func'})\n";
+
+		print F "cat << EOF\n";
+
+		print F "$title\n\n";
+
+		print F "NAME\n\n";
+		print F "$f->{'func'} - $f->{'bdesc'}\n\n";
+
+		print F "SYNOPSIS\n\n";
+
+		$syn = defined($f->{'altsyn'}) ? $f->{'altsyn'} : $f->{'syn'};
+		$syn =~ s/\@([\w]+)/$1/g;
+		$syn =~ s/\%([\w]+)/$1/g;
+
+		chomp($syn);
+		print F "$syn\n\n";
+
+		if($f->{'arg'})
+		{
+			my ($a,$d);
+
+			$a = $f->{'arg'};
+			$d = $f->{'argdesc'};
+
+			print F "ARGUMENTS\n\n";
+
+			for(my ($n) = 0;$n < scalar(@$a);$n++)
+			{
+				print F "$$a[$n] - $$d[$n]\n";
+			}
+
+			print F "\n";
+		}
+
+		if($f->{'desc'})
+		{
+			print F "DESCRIPTION\n\n";
+
+			my ($desc) = $f->{'desc'};
+			$desc =~ s/\@([\w]+)/$1/g;
+			$desc =~ s/\%([\w]+)/$1/g;
+
+			print F "$desc\n";
+
+			if($f->{'category'})
+			{
+				my ($s) = $f->{'category'};
+
+				print F "CATEGORIES\n\n";
+
+				for(my ($n) = 0;$n < scalar(@$s);$n++)
+				{
+					print F ", " if $n;
+					print F "$$s[$n]";
+				}
+
+				print F "\n";
+			}
+		}
+
+		if($author)
+		{
+			print F "AUTHOR\n\n";
+			print F "$author\n";
+		}
+
+		print F "EOF\n";
+		print F "\t;;\n";
+	}
+
+	print F "\"\")\n";
+	print F "\techo \"Usage: \$0 {keyword}\"\n";
+	print F "\t;;\n";
+
+	print F "*)\n";
+	print F "\techo \"No help for \$1\"\n";
+	print F "\texit 1";
+	print F "\t;;\n";
+
+	print F "esac\n";
+	print F "exit 0\n";
+
+	close F;
+
+	chmod 0755, $output;
+}
+
+
+sub format_man
+# create man pages
+{
+	my ($o,$h);
+	my ($pf);
+
+	$output = "." unless $output;
+	$output =~ s/\/$//;
+
+	unless(-d $output)
+	{
+		print "$output must be a directory; aborting\n";
+		exit(1);
+	}
+
+	$pf = $file_prefix . "_" if $file_prefix;
+
+	for(my $n = 0;$n < scalar(@functions);$n++)
+	{
+		my ($f,$syn);
+
+		$f = $functions[$n];
+
+		# write the file
+		open F, ">$output/${pf}$f->{'func'}.$man_section" or die "Error: $!";
+
+		print F ".TH $f->{'func'} $man_section \"\" \"$title\"\n";
+		print F ".SH NAME\n";
+		print F "$f->{'func'} \\- $f->{'bdesc'}\n";
+		print F ".SH SYNOPSIS\n";
+		print F ".nf\n";
+
+		$syn = defined($f->{'altsyn'}) ? $f->{'altsyn'} : $f->{'syn'};
+		print F ".B $syn\n";
+		print F ".fi\n";
+
+		if($f->{'arg'})
+		{
+			my ($a,$d);
+
+			$a = $f->{'arg'};
+			$d = $f->{'argdesc'};
+
+			print F ".SH ARGUMENTS\n";
+
+			for(my ($n) = 0;$n < scalar(@$a);$n++)
+			{
+				print F ".B $$a[$n] \\-\n";
+				print F "$$d[$n]\n";
+				print F ".sp\n";
+			}
+		}
+
+		if($f->{'desc'})
+		{
+			print F ".SH DESCRIPTION\n";
+
+			# take the description
+			my ($desc) = $f->{'desc'};
+			$desc =~ s/\@//g;
+			$desc =~ s/\%//g;
+
+			chomp($desc);
+			print F "$desc\n";
+
+			if($f->{'category'})
+			{
+				my ($s) = $f->{'category'};
+
+				print F ".SH CATEGORIES\n";
+
+				for(my ($n) = 0;$n < scalar(@$s);$n++)
+				{
+					print F ", " if $n;
+					print F "$$s[$n]";
+				}
+
+				print F "\n";
+			}
+		}
+
+		if($author)
+		{
+			print F ".SH AUTHOR\n";
+			print F "$author\n";
+		}
+
+		close F;
+	}
+}
+
+
+sub format_html_1
+# create 1 html page
+{
+	my ($h,%f);
+	my ($fn,$sf);
+
+	$file_prefix = "_" . $file_prefix if $file_prefix;
+
+	# build the header
+	$h = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\"\n\"http://www.w3.org/TR/REC-html40/loose.dtd\">\n";
+	$h .= sprintf("<!-- generated by mp_doccer $VERSION on %s -->\n",scalar(localtime()));
+	$h .= "<!-- mp_doccer is part of the Minimum Profit Text Editor -->\n";
+	$h .= "<!-- http://www.triptico.com/software/mp.html -->\n\n";
+	$h .= "<meta name='author' content='$author'>\n" if $author;
+
+	# create the file
+	$fn = $output . $file_prefix . ".html";
+
+	open F, ">$fn" or die "Error create $fn: $!";
+
+	print F $h;
+	print F "<head><title>$title</title></title>\n";
+	print F "<link rel=StyleSheet href='$css' type='text/css'>\n" if $css;
+	print F "<a name='_TOP_'></a><h1>$title</h1>\n";
+
+	if(scalar(keys(%categories)))
+	{
+		print F "<h2>By Category</h2>\n";
+
+		foreach my $sn (sort keys %categories)
+		{
+			my ($s) = $categories{$sn};
+
+			print F "<h3>$sn</h3><p>\n";
+			print F "<blockquote>\n";
+
+			for(my $n = 0;$n < scalar(@$s);$n++)
+			{
+				print F ", " if $n;
+				print F "<a href='#$$s[$n]'>$$s[$n]</a>";
+			}
+
+			print F "</blockquote>\n";
+		}
+	}
+
+	print F "<h2>By Source</h2>\n";
+
+	$sf = '';
+	foreach my $f (@functions)
+	{
+		if($sf ne $f->{'file'})
+		{
+			print F "</blockquote>\n" if $sf;
+
+			print F "<h3>$f->{'file'}</h3>\n";
+			print F "<blockquote>\n";
+
+			$sf = $f->{'file'};
+		}
+
+		print F "<a href='#$f->{'func'}'>$f->{'func'}</a> - $f->{'bdesc'}<br>\n";
+	}
+	print F "\n</blockquote>\n";
+
+	print F "<hr>\n";
+
+	# the functions themshelves
+	for(my $n = 0;$n < scalar(@functions);$n++)
+	{
+		my ($f,$syn);
+		$f = $functions[$n];
+
+		# avoid duplicate function names
+		next if $f{$f->{'func'}};
+		$f{$f->{'func'}}++;
+
+		print F "<a name='$f->{'func'}'></a>\n";
+
+		print F "<table width='100%'><tr><td><h2>$f->{'func'}</h2>\n</td><td align=right><a href='#_TOP_'>Top</a></table>";
+
+		print F "<blockquote>\n";
+
+		print F "<h3>Name</h3>\n";
+		print F "<strong class=funcname>$f->{'func'}</strong> - $f->{'bdesc'}\n";
+
+		print F "<h3>Synopsis</h3>\n";
+
+		$syn = defined($f->{'altsyn'}) ? $f->{'altsyn'} : $f->{'syn'};
+
+		# synopsis decoration
+		$syn =~ s/\b$f->{'func'}\b/\<strong class=funcname\>$f->{'func'}\<\/strong\>/g;
+
+		$syn =~ s/@([\w]+)/<em class=funcarg>$1<\/em>/g;
+		$syn =~ s/\%([\w]+)/<em class=funcret>$1<\/em>/g;
+
+		if($f->{'arg'})
+		{
+			my ($l);
+
+			$l = $f->{'arg'};
+
+			foreach my $a (@$l)
+			{
+				$syn =~ s/\b$a\b/\<em class=funcarg\>$a\<\/em\>/g;
+			}
+		}
+
+		print F "<pre class=funcsyn>\n$syn</pre>\n";
+
+		if($f->{'arg'})
+		{
+			my ($a,$d);
+
+			$a = $f->{'arg'};
+			$d = $f->{'argdesc'};
+
+			print F "<h3>Arguments</h3>\n";
+			print F "<dl>";
+
+			for(my ($n) = 0;$n < scalar(@$a);$n++)
+			{
+				print F "<dt><em class=funcarg>$$a[$n]</em>";
+				print F "<dd>$$d[$n]\n";
+			}
+
+			print F "</dl>\n";
+		}
+
+		if($f->{'desc'})
+		{
+			print F "<h3>Description</h3>\n";
+
+			# take the description
+			my ($desc) = $f->{'desc'};
+
+			# decorate function names
+			$desc =~ s/([\w_]+\(\))/<code class=funcname>$1<\/code>/g;
+
+			# decorate function arguments
+			$desc =~ s/@([\w_]+)/<em class=funcarg>$1<\/em>/g;
+
+			# decorate return values
+			$desc =~ s/\%([\w_]+)/<em class=funcret>$1<\/em>/g;
+
+			# replace blank lines
+			$desc =~ s/\n\n/\n<p>\n/gs;
+
+			print F "<p>$desc\n";
+
+			if($f->{'category'})
+			{
+				my ($s) = $f->{'category'};
+
+				print F "<h3>Categories</h3><p>\n";
+
+				for(my ($n) = 0;$n < scalar(@$s);$n++)
+				{
+					print F ", " if $n;
+					print F "$$s[$n]";
+				}
+
+				print F "\n";
+			}
+		}
+
+		print F "</blockquote><hr>\n";
+	}
+
+	print F "<p>$author<br>\n" if $author;
+
+	close F;
+}
+
+

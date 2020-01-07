@@ -1,0 +1,20 @@
+Main coding
+-----------
+Angel Ortega
+
+Contributors
+------------
+Martin Döring - Win32 version betatesting
+Sergey P. Vazulia - sh/bash scripts syntax highlighter
+Gabriel Emerson - Ruby and SQL syntax highlighters
+Geoff Youngs - PHP syntax highlighter, signal handling improvement
+Peter Ludikovsky - German translation
+Richard Zidlicky - RPM specfile
+lesion - Italian translation
+Rick van der Zwet - Dutch translation
+Richard Harris - Python syntax highlighter
+Lars Strojny - Grub.conf and Gentoo ebuild syntax highlight
+
+Special acknowledgements
+------------------------
+Manuel Zamora - testing and helping, all over the years
