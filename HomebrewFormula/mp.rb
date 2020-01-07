@@ -4,7 +4,7 @@ class Mp < Formula
   url "https://github.com/juiceghost/homebrew-mp/archive/v3.2.13.tar.gz"
 
   def install
-    system "make curses"
+    system "make mp"
     bin.install "mp"
   end
   
