@@ -1,7 +1,7 @@
 class Mp < Formula
   desc "Minimum Profit editor by Angel Ortega"
   homepage "https://triptico.com/software/mp.html"
-  url "https://github.com/juiceghost/homebrew-mp"
+  url "https://github.com/juiceghost/homebrew-mp/archive/v3.2.13.tar.gz"
 
   def install
     system "make"
