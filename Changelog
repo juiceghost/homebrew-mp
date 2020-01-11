@@ -1,3 +1,7 @@
+2020-01-11 Juiceghost <jg@renegade.se>
+
+	* mpv_curses.c: Added UTF-8 support.
+
 2004-03-18  Angel Ortega  <angel@astarot>
 
 	* makefile: Version 3.2.13 RELEASED.
