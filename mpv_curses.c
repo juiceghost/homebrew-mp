@@ -35,6 +35,7 @@
 #include <signal.h>
 #include <ctype.h>
 #include <sys/stat.h>
+#include <locale.h> /* JG UTF-8 support */
 
 #include "mp_core.h"
 #include "mp_video.h"
@@ -1466,7 +1467,7 @@ int mpv_startup(void)
 	mp_log("Using curses/ncurses driver\n");
 
 	_mpv_xonxoff(1);
-
+	setlocale(LC_ALL, ""); /* JG UTF-8 support */
 	initscr();
 	start_color();
 
