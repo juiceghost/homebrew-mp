@@ -1139,7 +1139,7 @@ char * mpv_readline(int type, char * prompt, char * def)
 		if(c=='\r' || c==KEY_ENTER || c=='\e')
 			break;
 
-		if((c==KEY_BACKSPACE || c=='\b') && cursor>0)
+		if((c==KEY_BACKSPACE || c=='\b' || c==0x7f) && cursor>0) /* JG Fixed filename save on mac */
 		{
 			addstr("\b \b");
 			tmp[--cursor]='\0';
