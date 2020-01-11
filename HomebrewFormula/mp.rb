@@ -1,4 +1,4 @@
-class MinimumProfit < Formula
+class Mp < Formula
   desc "Console-based editor by Ángel Ortega"
   homepage "https://triptico.com/software/mp.html"
   url "https://github.com/juiceghost/homebrew-mp/archive/v3.2.13.tar.gz"
