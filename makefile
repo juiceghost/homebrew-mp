@@ -5,7 +5,7 @@
 ############################################
 # -*- Mode: sh
 
-VERSION=3.2.13
+VERSION=3.2.14
 PREFIX=/usr/local
 SYSTEM=AUTODETECT
 CURSES=ncurses
@@ -133,7 +133,7 @@ install:
 	$(MAKE) -C mp_doccer install
 
 clean:
-	$(RM) -f *.o *.obj mp gmp *.exe *.gz *.res tags localhelp.sh Changelog
+	$(RM) -f *.o *.obj mp gmp *.exe *.gz *.res tags localhelp.sh
 
 docclean:
 	rm -f doc/*.html man/*
