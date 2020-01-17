@@ -1,7 +1,7 @@
 README.IRIX
 ===========
 
-To compile Minimum Profit under IRIX you need both GNU make and GCC, so
+To compile Morphed Profit under IRIX you need both GNU make and GCC, so
 you need to run
 
 	$ gmake CC=gcc CURSES=curses
@@ -9,4 +9,3 @@ you need to run
 to build it (it probably can also be compiled with SGI's native C compiler,
 but I don't own a CC license on my O2 to test it). You can obtain both GNU
 Make and GCC from http://freeware.sgi.com.
-

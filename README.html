@@ -2,16 +2,18 @@
  	"http://www.w3.org/TR/REC-html40/loose.dtd">
 <html><head>
 <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
-<title>Minimum Profit README</title>
+<title>Morphed Profit README</title>
 <!-- converted from text by grutatxt 2.0.5 on Wed Mar  3 16:10:55 2004 -->
 <body bgcolor=white text=black>
 <a name="minimum_profit_readme"></a>
-<h1 class=level1>Minimum Profit README</h1>
+<h1 class=level1>Morphed Profit README</h1>
 <p>
 <pre>
- Minimum Profit - Programmer Text Editor
- Copyright (C) 1991-2004 Angel Ortega &lt;angel@triptico.com&gt;
- Home Page: <a href="http://www.triptico.com/software/mp.html">http://www.triptico.com/software/mp.html</a>
+ Morphed Profit - Console-based programming editor.
+ based on Minimum Profit, Copyright (C) 1991-2004 Angel Ortega &lt;angel@triptico.com&gt;
+ New code is Copyright (C) 2020 juiceghost &lt;jg@renegade.se&gt;
+
+ Home Page: <a href="https://github.com/juiceghost/homebrew-mp">https://github.com/juiceghost/homebrew-mp</a>
 </pre>
 <p>
 This software is GPL. NO WARRANTY. See file 'COPYING' for details.
@@ -19,6 +21,16 @@ This software is GPL. NO WARRANTY. See file 'COPYING' for details.
 <a name="intro"></a>
 <h2 class=level2>Intro</h2>
 <p>
+Mr. Ortega wrote a fantastic editor and forms the basis for my own modifications. 
+Of note is that i only develop and test the curses-based 
+version of mp. To install Morphed Profit through Homebrew simply run:
+<pre>	λ brew tap juiceghost/mp
+	λ brew install mp
+</pre>
+
+</p>
+<h2 class=level2>Original Intro</h2>
+<p>	
 If you are reading this (you are), you probably know what a text editor
 is and thus I won't explain what 'open file', 'search and replace',
 'tab size' and things like those, means. Only the special or not-so-
@@ -32,10 +44,10 @@ Take a look at mprc.sample for details. The configuration files for Unix
 systems are /etc/mprc and <code class=var>$HOME</code>/.mprc (see below to know how to set it
 in Win32).
 <p>
-Minimum Profit includes several interfaces:
+Minimum Profit included several interfaces:
 <p>
 <table>
-<tr><td valign=top><strong class=term>curses</strong>&nbsp;&nbsp;</td><td valign=top>the good old text interface. You need any Unix (Linux, Solaris, any BSD...), the curses or ncurses library and GNU Make. This interface can also be compiled under BeOS (you also need ncurses).
+<tr><td valign=top><strong class=term>curses</strong>&nbsp;&nbsp;</td><td valign=top><b>(recommended)</b>the good old text interface. You need any Unix (Linux, Solaris, any BSD...), the curses or ncurses library and GNU Make. This interface can also be compiled under BeOS (you also need ncurses).
 <tr><td valign=top><strong class=term>GTK</strong>&nbsp;&nbsp;</td><td valign=top>You need any X11 system, GNU Make and the GTK+ libraries installed. Support for GTK versions 1.2 and 2.0 is provided.
 <tr><td valign=top><strong class=term>Win32</strong>&nbsp;&nbsp;</td><td valign=top>You need Microsoft Windows 95 or later, the lccwin32 compiler and the GNU Make build utility (preferably, the one that comes with DJGPP).
 </table>
@@ -57,11 +69,10 @@ If you don't have ncurses but the plain curses (as in many Unix flavours), run
 	 $ make CURSES=curses
 </pre>
 <p>
-Also, if you are on Unix and don't have GTK, make will complain; you can
-safely ignore it (the curses version will be correctly compiled) or use
+Right now the only supported version is built by:
 <p>
 <pre>
-	 $ make mp
+	 λ make mp
 </pre>
 <p>
 Also, if you (for whatever reasons) only want the GTK interface, do
@@ -259,7 +270,7 @@ set this value.
 <p>
 <ul><li>There are many other programs called mp, as the Mail Processor, MultiPlan and many more. Of course, this is just a problem of the polluted two-letter namespace for programs and the coincidence is purely incidental and accidental. Also, there are many software companies with names similar to mp or med or pro or medpro, but no one is related to this program. Many people (i.e. Debian people) use to rename it to mped to avoid collisions.
 <li>Though it's said that mp stands for Multieditor Professional, other voices relate it to 'Minimum Profit', 'Miscellaneous Pathology' and 'Meaningless Program'. Other user contributions are 'Mammuthus Primigenius', 'More Procrastination' and 'Multiple Personalities'.
-<li>Martin D�ring helped debugging the buggy Win32 version (thanks).
+<li>Martin D�ring helped debugging the buggy Win32 version (thanks).
 <li>Of course, there is an easter egg. All cool programs have one.
 </ul>
 <p>

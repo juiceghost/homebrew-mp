@@ -1,4 +1,4 @@
-Building a Minimum Profit win32 executable with mingw32
+Building a Morphed Profit win32 executable with mingw32 (experimental)
 =======================================================
 
 To do a cross-compilation with the mingw32 package on a Debian GNU/Linux system:

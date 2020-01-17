@@ -1,4 +1,8 @@
-2020-01-11 Juiceghost <jg@renegade.se>
+2020-01-17 juiceghost <jg@renegade.se>
+
+	* mp is now Morphed Profit. Initial version is 3.2.14a.
+
+2020-01-11 juiceghost <jg@renegade.se>
 
 	* mpv_curses.c: Added UTF-8 support.
 

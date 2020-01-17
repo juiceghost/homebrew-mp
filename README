@@ -1,37 +1,15 @@
-Minimum Profit README
+Morphed Profit README
 =====================
-
- Minimum Profit - Programmer Text Editor
- Copyright (C) 1991-2004 Angel Ortega <angel@triptico.com>
- Home Page: http://www.triptico.com/software/mp.html
+ Morphed Profit - Console-based Programming Editor
+ Inspired by Minimum Profit - Programmer Text Editor
+ Original Copyright (C) 1991-2004 Angel Ortega <angel@triptico.com>
+ Original Home Page: http://www.triptico.com/software/mp.html
 
 This software is GPL. NO WARRANTY. See file 'COPYING' for details.
 
 Intro
 -----
-
-If you are reading this (you are), you probably know what a text editor
-is and thus I won't explain what 'open file', 'search and replace',
-'tab size' and things like those, means. Only the special or not-so-
-intuitive features will be explained. In any other aspect, mp is just like
-the text editor you were using until today, before you've found this unknown
-jewel that will change your life.
-
-Since version 3.2.x, several things are changeable from a personal
-configuration file as key bindings, colors, the menu and other variables.
-Take a look at mprc.sample for details. The configuration files for Unix
-systems are /etc/mprc and $HOME/.mprc (see below to know how to set it
-in Win32).
-
-Minimum Profit includes several interfaces:
-
- * curses: the good old text interface. You need any Unix (Linux, Solaris,
-   any BSD...), the curses or ncurses library and GNU Make. This interface
-   can also be compiled under BeOS (you also need ncurses).
- * GTK: You need any X11 system, GNU Make and the GTK+ libraries installed.
-   Support for GTK versions 1.2 and 2.0 is provided.
- * Win32: You need Microsoft Windows 95 or later, the lccwin32 compiler
-   and the GNU Make build utility (preferably, the one that comes with DJGPP).
+Morphed Profit has rudimentary UTF-8 support. GTK and Win32 are untested on version 3.2.14 and onwards.  
 
 Compiling & Installing
 ----------------------
@@ -49,7 +27,7 @@ If you don't have ncurses but the plain curses (as in many Unix flavours), run
 Also, if you are on Unix and don't have GTK, make will complain; you can
 safely ignore it (the curses version will be correctly compiled) or use
 
-	 $ make mp
+	 $ make mp (recommended)
 
 Also, if you (for whatever reasons) only want the GTK interface, do
 
@@ -237,7 +215,7 @@ Misc Notes
    voices relate it to 'Minimum Profit', 'Miscellaneous Pathology' and
    'Meaningless Program'. Other user contributions are 'Mammuthus
    Primigenius', 'More Procrastination' and 'Multiple Personalities'.
- * Martin Döring helped debugging the buggy Win32 version (thanks).
+ * Martin Dï¿½ring helped debugging the buggy Win32 version (thanks).
  * Of course, there is an easter egg. All cool programs have one.
 
 ---

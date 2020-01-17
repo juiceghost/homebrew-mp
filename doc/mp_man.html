@@ -1,127 +1,255 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
- 	"http://www.w3.org/TR/REC-html40/loose.dtd">
-<html><head>
-<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
-<title>Minimum Profit Man Page</title>
-<!-- converted from text by grutatxt 2.0.11:1 on Sat Oct  7 12:14:46 2006 -->
-</head><body>
-<a name='name'></a>
-<h2 class='level2'>NAME</h2>
-<p>
-<pre>
- Minimum Profit - Programmer text editor
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+
+<head>
+	<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+	<title>Morphed Profit Man Page</title>
+	<!-- converted from text by grutatxt 2.0.11:1 on Sat Oct  7 12:14:46 2006 -->
+</head>
+
+<body>
+	<a name='name'></a>
+	<h2 class='level2'>NAME</h2>
+	<p>
+		<pre>
+ Morphed Profit - Programmer text editor
 </pre>
-<p>
-<a name='synopsis'></a>
-<h2 class='level2'>SYNOPSIS</h2>
-<p>
-<pre>
+		<p>
+			<a name='synopsis'></a>
+			<h2 class='level2'>SYNOPSIS</h2>
+			<p>
+				<pre>
  mp [options] [file [file...]]
 </pre>
-<p>
-<a name='description'></a>
-<h2 class='level2'>DESCRIPTION</h2>
-<p>
-Minimum Profit (mp) is a text editor for programmers. Among its features
-are the following:
-<p>
-<ul><li>Multiple files can be edited at the same time and blocks copied and pasted among them.
-<li>Syntax highlighting for many popular languages / file formats: C, C++, Perl, Shell Scripts, Ruby, Php, SQL, Python, HTML...
-<li>Creative use of tags: tags created by the external utility <em class='em'>ctags</em> are used to move instantaneously to functions or variables inside your current source tree. Tags are visually highlighted (underlined), and symbol completion can be triggered to avoid typing your own function names over and over.
-<li>Intelligent help system: pressing F1 over any word of a text being edited triggers the underlying system help (calling <em class='em'>man</em> when editing C or Shell files, <em class='em'>perldoc</em> with Perl, <em class='em'>ri</em> on Ruby, <em class='em'>winhelp</em> on MS Windows...).
-<li>Understandable interface: drop-down menus, reasonable default key bindings.
-<li>Configurable keys, menus and colors.
-<li>Text templates can be easily defined / accessed.
-<li>Multiplatform: Console/curses, GTK+ (1.2 and 2.0), MS Windows.
-<li>Automatic indentation, word wrapping, internal <em class='em'>grep</em>, learning / repeating functions.
-<li>Search and replace using plain text or regular expressions (including a special function to replace text on all open files).
-<li>Small memory footprint.
-<li>Spellchecking support (via the ispell package).
-<li>Multilingual.
-<li>It helps you abandon vi, emacs and other six-legged freaks definitely.
-<li>Awesome easter egg.
-</ul>
-<p>
-<a name='options'></a>
-<h2 class='level2'>OPTIONS</h2>
-<p>
-The following options are avaiable:
-<p>
-<dl>
-<dt><strong class='term'>-t tag</strong><dd>Edits the file where tag is defined (see ctags(1)).
-<dt><strong class='term'>-w column</strong><dd>Sets word wrapping to column. By default, no word wrapping is done.
-<dt><strong class='term'>-ts number</strong><dd>Sets visual tab size. By default is 8.
-<dt><strong class='term'>-ai</strong><dd>Activates automatic indentation. Disabled by default.
-<dt><strong class='term'>-l lang</strong><dd>Selects text messages and menus to <em class='em'>lang</em> language. Run mp --help to see a list of available languages. By default, the LANG language variable is tested and used if the language is available, falling back to english otherwise.
-<dt><strong class='term'>-m mode</strong><dd>Forces a syntax highlight mode. Run mp --help to see a list of available syntax highlight modes. By default, mode is autodetected for each open file.
-<dt><strong class='term'>--col80</strong><dd>Marks column # 80 in a different color.
-<dt><strong class='term'>-bw</strong><dd>Starts in black and white (monochrome) mode.
-<dt><strong class='term'>-tx</strong><dd>Start in text mode (instead of GUI). By default, GUI modes (if support for any of them is compiled in) are tested first and used if the environment is suitable (by connecting to an Xserver, for example). This option forces the usage of text modes only.
-<dt><strong class='term'>-sp</strong><dd>Enable spellchecking. The ispell package should be installed and correctly configured.
-<dt><strong class='term'>-h</strong><dd>Shows a brief help screen.
-</dl>
-<p>
-The following options are available for the curses interface:
-<p>
-<dl>
-<dt><strong class='term'>-hw</strong><dd>Activates 'hardware cursor'. By default, current cursor position is only marked with color. Setting this function the 'blinking' hardware cursor will be used. Probably useful only on real text console (not in graphical terminal emulators).
-<dt><strong class='term'>--mouse</strong><dd>Activates mouse usage for cursor positioning. Mouse support is only available if compiled with the ncurses library. Enabling this option will allow cursor positioning with the left mouse button and beginning / end of block marking with the right one.
-<dt><strong class='term'>-nt</strong><dd>Disable transparent mode. Only for terminal emulators.
-</dl>
-<p>
-The following options are available for the GTK interface:
-<p>
-<dl>
-<dt><strong class='term'>--geometry geospec</strong><dd>Sets the window geometry as an X11 geometry spec, in the format WxH[+X+Y].
-</dl>
-<p>
-<a name='author'></a>
-<h2 class='level2'>AUTHOR</h2>
-<p>
-<strong class='strong'>Minimum Profit</strong> has been written by Angel Ortega &lt;angel@triptico.com&gt; with
-the help of others (see the AUTHORS file for a complete list).
-<p>
-<a name='files'></a>
-<h2 class='level2'>FILES</h2>
-<p>
-<ul><li>/etc/mprc (system-wide configuration file).
-<li>~/.mprc (user configuration file).
-<li>~/.mp_templates (user text templates).
-</ul>
-<p>
-<a name='environment_variables'></a>
-<h2 class='level2'>ENVIRONMENT VARIABLES</h2>
-<p>
-<ul><li>HOME (user home directory).
-<li>LANG, LC_ALL (language settings).
-</ul>
-<p>
-<a name='see_also'></a>
-<h2 class='level2'>SEE ALSO</h2>
-<p>
-ctags(1).
-<p>
-mprc.sample and mprc-win32.sample for configuration file examples
-in /usr/share/doc/mped.
-<p>
-AUTHORS, README, README.IRIX, README.mingw32, README.solaris and
-README.zaurus.
-<p>
-Home page: <a href="http://www.triptico.com/software/mp.html">http://www.triptico.com/software/mp.html</a>
-<p>
-Mailing list: mp-subscribe@lists.triptico.com
-<p>
-<a name='license'></a>
-<h2 class='level2'>LICENSE</h2>
-<p>
-This  program  is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License as
-published by the Free Software  Foundation; either version 2
-of the License, or (at your option) any later version.
-<p>
-This program is distributed in the hope that it will be useful, but
-WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-<p>
-See the GNU General Public License for more details.
-</body></html>
+				<p>
+					<a name='description'></a>
+					<h2 class='level2'>DESCRIPTION</h2>
+					<p>
+						Morphed Profit (mp) is a console-based editor for programmers. Among its features
+						are the following:
+						<p>
+							<ul>
+								<li>Multiple files can be edited at the same time and blocks copied and pasted among
+									them.
+								<li>Syntax highlighting for many popular languages / file formats: C, C++, Perl, Shell
+									Scripts, Ruby, Php, SQL, Python, HTML...
+								<li>Creative use of tags: tags created by the external utility <em class='em'>ctags</em>
+									are used to move instantaneously to functions or variables inside your current
+									source tree. Tags are visually highlighted (underlined), and symbol completion can
+									be triggered to avoid typing your own function names over and over.
+								<li>Intelligent help system: pressing F1 over any word of a text being edited triggers
+									the underlying system help (calling <em class='em'>man</em> when editing C or Shell
+									files, <em class='em'>perldoc</em> with Perl, <em class='em'>ri</em> on Ruby, <em
+										class='em'>winhelp</em> on MS Windows...).
+								<li>Understandable interface: drop-down menus, reasonable default key bindings.
+								<li>Configurable keys, menus and colors.
+								<li>Text templates can be easily defined / accessed.
+								<li>Multiplatform: Console/curses, GTK+ (1.2 and 2.0), MS Windows.
+								<li>Automatic indentation, word wrapping, internal <em class='em'>grep</em>, learning /
+									repeating functions.
+								<li>Search and replace using plain text or regular expressions (including a special
+									function to replace text on all open files).
+								<li>Small memory footprint.
+								<li>Spellchecking support (via the ispell package).
+								<li>Multilingual.
+								<li>It helps you abandon vi, emacs and other six-legged freaks definitely.
+								<li>Awesome easter egg.
+							</ul>
+							<p>
+								<a name='options'></a>
+								<h2 class='level2'>OPTIONS</h2>
+								<p>
+									The following options are avaiable:
+									<p>
+										<dl>
+											<dt><strong class='term'>-t tag</strong>
+											<dd>Edits the file where tag is defined (see ctags(1)).
+											<dt><strong class='term'>-w column</strong>
+											<dd>Sets word wrapping to column. By default, no word wrapping is done.
+											<dt><strong class='term'>-ts number</strong>
+											<dd>Sets visual tab size. By default is 8.
+											<dt><strong class='term'>-ai</strong>
+											<dd>Activates automatic indentation. Disabled by default.
+											<dt><strong class='term'>-l lang</strong>
+											<dd>Selects text messages and menus to <em class='em'>lang</em> language.
+												Run mp --help to see a list of available languages. By default, the LANG
+												language variable is tested and used if the language is available,
+												falling back to english otherwise.
+											<dt><strong class='term'>-m mode</strong>
+											<dd>Forces a syntax highlight mode. Run mp --help to see a list of available
+												syntax highlight modes. By default, mode is autodetected for each open
+												file.
+											<dt><strong class='term'>--col80</strong>
+											<dd>Marks column # 80 in a different color.
+											<dt><strong class='term'>-bw</strong>
+											<dd>Starts in black and white (monochrome) mode.
+											<dt><strong class='term'>-tx</strong>
+											<dd>Start in text mode (instead of GUI). By default, GUI modes (if support
+												for any of them is compiled in) are tested first and used if the
+												environment is suitable (by connecting to an Xserver, for example). This
+												option forces the usage of text modes only.
+											<dt><strong class='term'>-sp</strong>
+											<dd>Enable spellchecking. The ispell package should be installed and
+												correctly configured.
+											<dt><strong class='term'>-h</strong>
+											<dd>Shows a brief help screen.
+										</dl>
+										<p>
+											The following options are available for the curses interface:
+											<p>
+												<dl>
+													<dt><strong class='term'>-hw</strong>
+													<dd>Activates 'hardware cursor'. By default, current cursor position
+														is only marked with color. Setting this function the 'blinking'
+														hardware cursor will be used. Probably useful only on real text
+														console (not in graphical terminal emulators).
+													<dt><strong class='term'>--mouse</strong>
+													<dd>Activates mouse usage for cursor positioning. Mouse support is
+														only available if compiled with the ncurses library. Enabling
+														this option will allow cursor positioning with the left mouse
+														button and beginning / end of block marking with the right one.
+													<dt><strong class='term'>-nt</strong>
+													<dd>Disable transparent mode. Only for terminal emulators.
+												</dl>
+												<p>
+													The following options are available for the GTK interface:
+													<p>
+														<dl>
+															<dt><strong class='term'>--geometry geospec</strong>
+															<dd>Sets the window geometry as an X11 geometry spec, in the
+																format WxH[+X+Y].
+														</dl>
+														<p>
+															<a name='author'></a>
+															<h2 class='level2'>AUTHOR</h2>
+															<p>
+																<strong class='strong'>Minimum Profit</strong> has been
+																written by Angel Ortega &lt;angel@triptico.com&gt; with
+																the help of others (see the AUTHORS file for a complete
+																list).
+																<p>
+																	<a name='files'></a>
+																	<h2 class='level2'>FILES</h2>
+																	<p>
+																		<ul>
+																			<li>/etc/mprc (system-wide configuration
+																				file).
+																			<li>~/.mprc (user configuration file).
+																			<li>~/.mp_templates (user text templates).
+																		</ul>
+																		<p>
+																			<a name='environment_variables'></a>
+																			<h2 class='level2'>ENVIRONMENT VARIABLES
+																			</h2>
+																			<p>
+																				<ul>
+																					<li>HOME (user home directory).
+																					<li>LANG, LC_ALL (language
+																						settings).
+																				</ul>
+																				<p>
+																					<a name='see_also'></a>
+																					<h2 class='level2'>SEE ALSO</h2>
+																					<p>
+																						ctags(1).
+																						<p>
+																							mprc.sample and
+																							mprc-win32.sample for
+																							configuration file examples
+																							in /usr/share/doc/mped.
+																							<p>
+																								AUTHORS, README,
+																								README.IRIX,
+																								README.mingw32,
+																								README.solaris and
+																								README.zaurus.
+																								<p>
+																									Home page: <a
+																										href="http://www.triptico.com/software/mp.html">http://www.triptico.com/software/mp.html</a>
+																									<p>
+																										Mailing list:
+																										mp-subscribe@lists.triptico.com
+																										<p>
+																											<a
+																												name='license'></a>
+																											<h2
+																												class='level2'>
+																												LICENSE
+																											</h2>
+																											<p>
+																												This
+																												program
+																												is free
+																												software;
+																												you can
+																												redistribute
+																												it
+																												and/or
+																												modify
+																												it under
+																												the
+																												terms of
+																												the GNU
+																												General
+																												Public
+																												License
+																												as
+																												published
+																												by the
+																												Free
+																												Software
+																												Foundation;
+																												either
+																												version
+																												2
+																												of the
+																												License,
+																												or (at
+																												your
+																												option)
+																												any
+																												later
+																												version.
+																												<p>
+																													This
+																													program
+																													is
+																													distributed
+																													in
+																													the
+																													hope
+																													that
+																													it
+																													will
+																													be
+																													useful,
+																													but
+																													WITHOUT
+																													ANY
+																													WARRANTY;
+																													without
+																													even
+																													the
+																													implied
+																													warranty
+																													of
+																													MERCHANTABILITY
+																													or
+																													FITNESS
+																													FOR
+																													A
+																													PARTICULAR
+																													PURPOSE.
+																													<p>
+																														See
+																														the
+																														GNU
+																														General
+																														Public
+																														License
+																														for
+																														more
+																														details.
+</body>
+
+</html>

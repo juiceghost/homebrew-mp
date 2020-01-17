@@ -1,9 +1,10 @@
-Minimum Profit TODO
+Morphed Profit TODO
 ===================
 
 Bugs
 ----
 
+ * Backspace with UTF-8 characters can sometimes take an extra keypress 
  * Word wrap seems to be broken in some special cases.
  * The usage() function should be platform-dependent and show
    only usable command-line arguments (now it's a mess).
