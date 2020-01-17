@@ -44,7 +44,7 @@ Take a look at mprc.sample for details. The configuration files for Unix
 systems are /etc/mprc and <code class=var>$HOME</code>/.mprc (see below to know how to set it
 in Win32).
 <p>
-Minimum Profit included several interfaces:
+Morphed Profit several experimental interfaces:
 <p>
 <table>
 <tr><td valign=top><strong class=term>curses</strong>&nbsp;&nbsp;</td><td valign=top><b>(recommended)</b>the good old text interface. You need any Unix (Linux, Solaris, any BSD...), the curses or ncurses library and GNU Make. This interface can also be compiled under BeOS (you also need ncurses).
@@ -179,7 +179,7 @@ win32_help_file.
 <a name="regular_expressions"></a>
 <h2 class=level2>Regular expressions</h2>
 <p>
-By default, Minimum Profit makes its search and replace functions using
+By default, Morphed Profit makes its search and replace functions using
 plain text searching. If you want to use regular expressions, you can
 activate the 'Use regular expressions' flag in the Search menu or include
 the 'use_regex: 1' key in the configuration file to use always use them.
@@ -226,7 +226,7 @@ I/O, or any other standard thing?).
 <a name="about_mp_&amp;_tabs"></a>
 <h2 class=level2>About mp &amp; tabs</h2>
 <p>
-<strong class=strong>NOTE:</strong> Minimum Profit used to have a special treatment for tabulators
+<strong class=strong>NOTE:</strong> Morphed Profit used to have a special treatment for tabulators
 (\t characters) that could not work as expected in some environments, so
 this paragraph was a caveat about it. This is no longer true; you can
 use tabs as in every other text editor of the world.
@@ -256,9 +256,9 @@ HTML documentation. See the README file there.
 <h2 class=level2>Win32 version configuration</h2>
 <p>
 Several parameters could be set in the Win32 registry in previous versions
-of Minimum Profit; now, there is only one value to register, as the other
+of Morphed Profit; now, there is only one value to register, as the other
 ones can be defined in the configuration file: the HOME directory.
-So, the only key is "HKEY_CURRENT_USER\Software\Minimum Profit\Home", and
+So, the only key is "HKEY_CURRENT_USER\Software\Morphed Profit\Home", and
 is supposed to hold the drive:\path where the .mprc configuration file
 can be found (so it can be shared between machines or even platforms).
 All other run-time values can be configured there. The mp.reg file,
@@ -269,11 +269,12 @@ set this value.
 <h2 class=level2>Misc Notes</h2>
 <p>
 <ul><li>There are many other programs called mp, as the Mail Processor, MultiPlan and many more. Of course, this is just a problem of the polluted two-letter namespace for programs and the coincidence is purely incidental and accidental. Also, there are many software companies with names similar to mp or med or pro or medpro, but no one is related to this program. Many people (i.e. Debian people) use to rename it to mped to avoid collisions.
-<li>Though it's said that mp stands for Multieditor Professional, other voices relate it to 'Minimum Profit', 'Miscellaneous Pathology' and 'Meaningless Program'. Other user contributions are 'Mammuthus Primigenius', 'More Procrastination' and 'Multiple Personalities'.
+<li>Though it's said that mp stands for Multieditor Professional, other voices relate it to 'Morphed or Minimum Profit', 'Miscellaneous Pathology' and 'Meaningless Program'. Other user contributions are 'Mammuthus Primigenius', 'More Procrastination' and 'Multiple Personalities'.
 <li>Martin D�ring helped debugging the buggy Win32 version (thanks).
 <li>Of course, there is an easter egg. All cool programs have one.
 </ul>
 <p>
 <hr size=1 noshade>
 Angel Ortega <a href="http://www.triptico.com">http://www.triptico.com</a>
+juiceghost <a href="https://github.com/juiceghost/homebrew-mp">https://github.com/juiceghost/homebrew-mp</a>
 </body></html>

@@ -1,6 +1,6 @@
 ############################################
 #
-#	Minimum Profit makefile
+#	Morphed Profit makefile
 #
 ############################################
 # -*- Mode: sh
@@ -153,18 +153,18 @@ win32dist:
 
 doc: README.html
 	-mp_doccer *.c -o $(DOCPATH) -f $(DOCFORMAT) \
-		-t "The Minimum Profit API ($(VERSION))" \
+		-t "The Morphed Profit API ($(VERSION))" \
 		-a 'Angel Ortega - <em>angel@triptico.com</em>' $(DOCFLAGS)
 
 .PHONY: man
 man:
 	mp_doccer *.c -o man -f man \
-	-t "The Minimum Profit API ($(VERSION))" \
+	-t "The Morphed Profit API ($(VERSION))" \
 	-a 'Angel Ortega <angel@triptico.com>' $(DOCFLAGS)
 
 help:
 	mp_doccer *.c -f localhelp \
-	-t "The Minimum Profit API ($(VERSION))" \
+	-t "The Morphed Profit API ($(VERSION))" \
 	-a 'Angel Ortega <angel@triptico.com>'
 
 README.html: README

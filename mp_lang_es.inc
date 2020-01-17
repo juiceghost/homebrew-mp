@@ -2,7 +2,7 @@
 
     mp_lang_es.inc
 
-    Mensajes en español
+    Mensajes en espaï¿½ol
 
     mp - Programmer Text Editor
 
@@ -31,7 +31,7 @@ static char * _es_ids[] = { "es", "spanish", "es_ES", "ES", NULL };
 
 static struct lang_str _es_strs[] = 
 {
-	{ MSG_YES_STRING,   "Sí" },
+	{ MSG_YES_STRING,   "Sï¿½" },
 	{ MSG_NO_STRING,    "No" },
 	{ MSG_UNNAMED,	    "<sin nombre>" },
 	{ MSG_TEXTTOSEEK,   "Texto a buscar: " },
@@ -39,54 +39,54 @@ static struct lang_str _es_strs[] =
 	{ MSG_NOTFOUND,     "Texto no encontrado." },
 	{ MSG_TAGNOTFOUND,  "Tag(s) no encontrado(s)." },
 	{ MSG_FILENAME,     "Nombre del fichero: " },
-	{ MSG_SAVECHANGES,  "El fichero ha cambiado. ¿Salvar cambios?" },
+	{ MSG_SAVECHANGES,  "El fichero ha cambiado. ï¿½Salvar cambios?" },
 	{ MSG_FILENOTFOUND, "Fichero '%s' no encontrado." },
 	{ MSG_CANTWRITE,    "Imposible crear fichero '%s'." },
 	{ MSG_YESNO,	    " [S/N]" },
 	{ MSG_ENTER,	    " [ENTER]" },
 	{ MSG_HELP,	    "<ayuda sobre '%s'>" },
 	{ MSG_LOADING,	    "CARGANDO" },
-	{ MSG_LINETOGO,     "Número de línea: " },
+	{ MSG_LINETOGO,     "Nï¿½mero de lï¿½nea: " },
 	{ MSG_NOHELPFOR,    "No hay ayuda sobre '%s'" },
 	{ MSG_REPLACETHIS,  "Reemplazar texto: " },
 	{ MSG_REPLACEWITH,  "Reemplazar con: " },
-	{ MSG_TOENDOFFILE,  "¿Hasta el final del fichero?" },
+	{ MSG_TOENDOFFILE,  "ï¿½Hasta el final del fichero?" },
 	{ MSG_YES,	    "S" },
 	{ MSG_NO,	    "N" },
 	{ MSG_KEYHELP,	    "<ayuda sobre teclas>" },
-	{ MSG_ABOUT,	    "<acerca de Minimum Profit>" },
+	{ MSG_ABOUT,	    "<acerca de Morphed Profit>" },
 	{ MSG_EXEC,	    "Comando del sistema: " },
 	{ MSG_CANTEXEC,     "Error ejecutando comando." },
 	{ MSG_WORDWRAP,     "Word wrap en columna (0, ninguno): " },
-	{ MSG_TABSIZE,	    "Tamaño del tabulador: " },
+	{ MSG_TABSIZE,	    "Tamaï¿½o del tabulador: " },
 	{ MSG_BADMODE,	    "Modo incorrecto. Los modos disponibles son:" },
 	{ MSG_TMPLNOTFOUND, "Imposible abrir fichero de moldes (%s)" },
 	{ MSG_SELECTTMPL,   "Seleccionar molde" },
 	{ MSG_TAGLIST,	    "Lista de tags" },
 	{ MSG_OPENLIST,     "Documentos abiertos" },
 	{ MSG_CANCELHINT,   "ESC Cancelar" },
-	{ MSG_EXECFUNCTION, "Función a ejecutar: " },
-	{ MSG_BADFUNCTION,  "Función no encontrada (%s)" },
-	{ MSG_FILESTOGREP,  "Ficheros en los que buscar (vacío, todos): " },
+	{ MSG_EXECFUNCTION, "Funciï¿½n a ejecutar: " },
+	{ MSG_BADFUNCTION,  "Funciï¿½n no encontrada (%s)" },
+	{ MSG_FILESTOGREP,  "Ficheros en los que buscar (vacï¿½o, todos): " },
 
-	{ "move-up",		 "Línea arriba" },
-	{ "move-down",		 "Línea abajo" },
-	{ "move-left",		 "Carácter izquierda" },
-	{ "move-right", 	 "Carácter Derecha" },
+	{ "move-up",		 "Lï¿½nea arriba" },
+	{ "move-down",		 "Lï¿½nea abajo" },
+	{ "move-left",		 "Carï¿½cter izquierda" },
+	{ "move-right", 	 "Carï¿½cter Derecha" },
 	{ "move-word-left",	 "Palabra izquierda" },
 	{ "move-word-right",	 "Palabra Derecha" },
-	{ "move-eol",		 "Fin Línea" },
-	{ "move-bol",		 "Principio Línea" },
+	{ "move-eol",		 "Fin Lï¿½nea" },
+	{ "move-bol",		 "Principio Lï¿½nea" },
 	{ "move-eof",		 "Fin Documento" },
 	{ "move-bof",		 "Principio Documento" },
-	{ "move-page-up",	 "Página arriba" },
-	{ "move-page-down",	 "Página abajo" },
-	{ "goto",		 "Ir a línea..." },
-	{ "insert-line",	 "Insertar línea" },
+	{ "move-page-up",	 "Pï¿½gina arriba" },
+	{ "move-page-down",	 "Pï¿½gina abajo" },
+	{ "goto",		 "Ir a lï¿½nea..." },
+	{ "insert-line",	 "Insertar lï¿½nea" },
 	{ "insert-tab", 	 "Insertar tabulador" },
-	{ "delete",		 "Borrar carácter en cursor" },
-	{ "delete-left",	 "Borrar carácter a la izquierda del cursor" },
-	{ "delete-line",	 "Borrar línea" },
+	{ "delete",		 "Borrar carï¿½cter en cursor" },
+	{ "delete-left",	 "Borrar carï¿½cter a la izquierda del cursor" },
+	{ "delete-line",	 "Borrar lï¿½nea" },
 	{ "mark",		 "Marcar principio/fin de bloque" },
 	{ "unmark",		 "Desmarcar bloque" },
 	{ "copy",		 "Copiar bloque" },
@@ -101,17 +101,17 @@ static struct lang_str _es_strs[] =
 	{ "open",		 "Abrir..." },
 	{ "reopen",		 "Reabrir..." },
 	{ "save",		 "Guardar..." },
-	{ "save-as",		 "Guardar cómo..." },
+	{ "save-as",		 "Guardar cï¿½mo..." },
 	{ "close",		 "Cerrar" },
 	{ "open-under-cursor",	 "Abrir fichero bajo el cursor" },
-	{ "zoom-in",		 "Aumentar tamaño del font" },
-	{ "zoom-out",		 "Disminuir tamaño del font" },
+	{ "zoom-in",		 "Aumentar tamaï¿½o del font" },
+	{ "zoom-out",		 "Disminuir tamaï¿½o del font" },
 	{ "toggle-insert",	 "Insertar/Sobreescribir" },
-	{ "toggle-case",	 "Distinguir mayúsculas" },
+	{ "toggle-case",	 "Distinguir mayï¿½sculas" },
 	{ "toggle-save-tabs",	 "Salvar tabuladores" },
 	{ "toggle-cr-lf",	 "Salvar LF como CR/LF" },
-	{ "toggle-auto-indent",  "Indentación automática" },
-	{ "toggle-column-80",	 "Marcar columna nº 80" },
+	{ "toggle-auto-indent",  "Indentaciï¿½n automï¿½tica" },
+	{ "toggle-column-80",	 "Marcar columna nï¿½ 80" },
 	{ "toggle-regex",	"Usar expresiones regulares" },
 	{ "help",		 "Ayuda para la palabra en el cursor" },
 	{ "exec-command",	 "Ejecutar comando del sistema..." },
@@ -120,20 +120,20 @@ static struct lang_str _es_strs[] =
 	{ "insert-template",	 "Insertar molde..." },
 	{ "completion", 	 "Completar tag..." },
 	{ "edit-templates-file", "Editar fichero de moldes" },
-	{ "edit-config-file",	 "Editar fichero de configuración" },
+	{ "edit-config-file",	 "Editar fichero de configuraciï¿½n" },
 	{ "set-word-wrap",	 "Word wrap..." },
-	{ "set-tab-size",	 "Tamaño del tabulador..." },
-	{ "menu",		 "Menú" },
+	{ "set-tab-size",	 "Tamaï¿½o del tabulador..." },
+	{ "menu",		 "Menï¿½" },
 	{ "about",		 "Acerca de..." },
 	{ "exit",		 "Salir" },
 	{ "play-macro", 	 "Ejecutar macro" },
 	{ "record-macro",	 "Grabar macro" },
 	{ "key-help",		 "Ayuda sobre teclas" },
-	{ "mouse-position",	 "Posicionar el cursor con el ratón" },
-	{ "exec-function",	 "Ejecutar función del editor..." },
+	{ "mouse-position",	 "Posicionar el cursor con el ratï¿½n" },
+	{ "exec-function",	 "Ejecutar funciï¿½n del editor..." },
 	{ "sync",		 "Guardar textos modificados" },
 	{ "grep",		 "Buscar en ficheros (grep)..." },
-	{ "mark-match", 	 "Selecciona la última búsqueda con éxito" },
+	{ "mark-match", 	 "Selecciona la ï¿½ltima bï¿½squeda con ï¿½xito" },
 
 	{ MSG_FILE_MENU,	 "&Archivo" },
 	{ MSG_EDIT_MENU,	 "&Editar" },
@@ -148,29 +148,29 @@ Uso: mp [opciones] [fichero [fichero ...]]\n\
 \n\
 Opciones:\n\
 \n\
- -t|--tag [tag] 	Edita el fichero donde está definido tag\n\
+ -t|--tag [tag] 	Edita el fichero donde estï¿½ definido tag\n\
  -w|--word-wrap [col]	Activa el wordwrapping en lacolumna col\n\
- -ts|--tab-size [size]	Define el tamaño del tabulador a size\n\
- --mouse		Activa el uso del ratón para posicionamiento\n\
+ -ts|--tab-size [size]	Define el tamaï¿½o del tabulador a size\n\
+ --mouse		Activa el uso del ratï¿½n para posicionamiento\n\
  --col80		Marca la columna 80\n\
  -hw|--hardware-cursor	Activa el uso del cursor hardware\n\
- --version		Muestra la versión\n\
+ --version		Muestra la versiï¿½n\n\
  -h|--help		Esta pantalla de ayuda\n\
  -bw|--monochrome	Monocromo\n\
- -ai|--autoindent	Activa el modo de indentación automática\n\
+ -ai|--autoindent	Activa el modo de indentaciï¿½n automï¿½tica\n\
  -nt|--no-transparent	Desactiva el modo transparente (eterm, aterm, etc.)\n\
- -l|--lang [lang]	Selección de idioma\n\
+ -l|--lang [lang]	Selecciï¿½n de idioma\n\
  -m|--mode [modo]	Modo de syntax-hilight\n\
 			" },
 
 	{ MSG_EMPTY_TEMPLATE, "\
-%%Fichero de moldes vacío\n\
+%%Fichero de moldes vacï¿½o\n\
 \n\
-Este fichero de moldes está vacío. Para crear moldes, sólo hay que\n\
+Este fichero de moldes estï¿½ vacï¿½o. Para crear moldes, sï¿½lo hay que\n\
 escribir un nombre (marcado mediante dos caracteres % seguidos al\n\
-principio de la línea) y un bloque de texto, delimitado por el\n\
+principio de la lï¿½nea) y un bloque de texto, delimitado por el\n\
 siguiente molde o el final del fichero. Al seleccionar uno de los\n\
-moldes desde la lista (abierta mediante Ctrl-U), éste se insertará\n\
+moldes desde la lista (abierta mediante Ctrl-U), ï¿½ste se insertarï¿½\n\
 en el texto activo.\n" },
 
 	{ NULL, NULL }

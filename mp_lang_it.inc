@@ -56,7 +56,7 @@ static struct lang_str _it_strs[] =
 	{ MSG_YES,	    "S" },
 	{ MSG_NO,	    "N" },
 	{ MSG_KEYHELP,	    "<Aiuto tasti>" },
-	{ MSG_ABOUT,	    "<Circa Minimum Profit>" },
+	{ MSG_ABOUT,	    "<Circa Morphed Profit>" },
 	{ MSG_EXEC,	    "Esegui: " },
 	{ MSG_CANTEXEC,     "Errore eseguendo il comando." },
 	{ MSG_WORDWRAP,     "Word wrap alla colonna:  " },

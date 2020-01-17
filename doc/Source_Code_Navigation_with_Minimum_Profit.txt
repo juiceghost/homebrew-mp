@@ -1,9 +1,9 @@
-Source Code Navigation with Minimum Profit
+Source Code Navigation with Morphed Profit
 ==========================================
 
-Though Minimum Profit can be used as an ordinary text editor, it's mainly
+Though Morphed Profit can be used as an ordinary text editor, it's mainly
 aimed at source code processing. This document describes the special
-features oriented to source code navigation included with Minimum Profit.
+features oriented to source code navigation included with Morphed Profit.
 
 Finding where a function or variable is defined
 -----------------------------------------------

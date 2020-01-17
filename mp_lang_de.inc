@@ -42,31 +42,31 @@ static struct lang_str _de_strs[] =
 	{ MSG_NOTFOUND,     "Text nicht gefunden." },
 	{ MSG_TAGNOTFOUND,  "Tag(s) nicht gefunden." },
 	{ MSG_FILENAME,     "Dateinamen eingeben: " },
-	{ MSG_SAVECHANGES,  "Datei wurde verändert. Sollen die Änderungen gespeichert werden?" },
+	{ MSG_SAVECHANGES,  "Datei wurde verï¿½ndert. Sollen die ï¿½nderungen gespeichert werden?" },
 	{ MSG_FILENOTFOUND, "Datei '%s' nicht gefunden." },
 	{ MSG_CANTWRITE,    "Kann Datei '%s' nicht erzeugen." },
 	{ MSG_YESNO,	    " [J/N]" },
 	{ MSG_ENTER,	    " [EINGABE]" },
-	{ MSG_HELP,	    "<Hilfe über '%s'>" },
+	{ MSG_HELP,	    "<Hilfe ï¿½ber '%s'>" },
 	{ MSG_LOADING,	    "LADE" },
 	{ MSG_LINETOGO,     "Springe zu Zeile: " },
-	{ MSG_NOHELPFOR,    "Keine Hilfe über '%s'" },
+	{ MSG_NOHELPFOR,    "Keine Hilfe ï¿½ber '%s'" },
 	{ MSG_REPLACETHIS,  "Ersetze Text: " },
 	{ MSG_REPLACEWITH,  "Ersetze durch: " },
 	{ MSG_TOENDOFFILE,  "Zum Ende der Datei?" },
 	{ MSG_YES,	    "J" },
 	{ MSG_NO,	    "N" },
-	{ MSG_KEYHELP,	    "<Tastaturkürzel>" },
-	{ MSG_ABOUT,	    "<über Minimum Profit>" },
+	{ MSG_KEYHELP,	    "<Tastaturkï¿½rzel>" },
+	{ MSG_ABOUT,	    "<ï¿½ber Morphed Profit>" },
 	{ MSG_EXEC,	    "System Kommando: " },
-	{ MSG_CANTEXEC,     "Fehler beim Ausführen des Kommandos." },
+	{ MSG_CANTEXEC,     "Fehler beim Ausfï¿½hren des Kommandos." },
 	{ MSG_WORDWRAP,     "Zeilenumbruch bei Spalte (0, kein Umbruch): " },
-	{ MSG_TABSIZE,	    "Tabulatorgröße: " },
-	{ MSG_BADMODE,	    "Unbekannter Modus. Verfügbare Modi:" },
+	{ MSG_TABSIZE,	    "Tabulatorgrï¿½ï¿½e: " },
+	{ MSG_BADMODE,	    "Unbekannter Modus. Verfï¿½gbare Modi:" },
 	{ MSG_TMPLNOTFOUND, "Vorlage nicht gefunden (%s)" },
-	{ MSG_SELECTTMPL,   "Vorlage auswählen" },
+	{ MSG_SELECTTMPL,   "Vorlage auswï¿½hlen" },
 	{ MSG_TAGLIST,	    "Tagliste" },
-	{ MSG_OPENLIST,     "Öffne Dokumente" },
+	{ MSG_OPENLIST,     "ï¿½ffne Dokumente" },
 	{ MSG_CANCELHINT,   "ESC Abbrechen" },
 	{ MSG_EXECFUNCTION, "Function to execute: " },
 	{ MSG_BADFUNCTION,  "Function not found (%s)" },
@@ -87,45 +87,45 @@ static struct lang_str _de_strs[] =
 	{ "goto",		 "Gehe zu Zeile..." },
 	{ "insert-line",	 NULL },
 	{ "insert-tab", 	 "Tabulator" },
-	{ "delete",		 "Lösche Zeichen über dem Cursor" },
-	{ "delete-left",	 "Lösche Zeichen links vom Cursor" },
-	{ "delete-line",	 "Zeile löschen" },
+	{ "delete",		 "Lï¿½sche Zeichen ï¿½ber dem Cursor" },
+	{ "delete-left",	 "Lï¿½sche Zeichen links vom Cursor" },
+	{ "delete-line",	 "Zeile lï¿½schen" },
 	{ "mark",		 "Markiere Anfang / Ende eines Blocks" },
-	{ "unmark",		 "Blockmarkierung löschen" },
+	{ "unmark",		 "Blockmarkierung lï¿½schen" },
 	{ "copy",		 "Block kopieren" },
-	{ "paste",		 "Block einfügen" },
+	{ "paste",		 "Block einfï¿½gen" },
 	{ "cut",		 "Block ausschneiden" },
 	{ "seek",		 "Suche Text..." },
 	{ "seek-next",		 "Weitersuchen" },
 	{ "replace",		 "Suchen und Ersetzen..." },
 	{ "replace-all",	 "In allen Ersetzen..." },
-	{ "next",		 "Nächste Datei" },
+	{ "next",		 "Nï¿½chste Datei" },
 	{ "new",		 "Neu" },
-	{ "open",		 "Öffnen..." },
-	{ "reopen",		 "Erneut öffnen..." },
+	{ "open",		 "ï¿½ffnen..." },
+	{ "reopen",		 "Erneut ï¿½ffnen..." },
 	{ "save",		 "Speichern..." },
 	{ "save-as",		 "Speichern Als..." },
-	{ "close",		 "Schließen" },
-	{ "zoom-in",		 "Erhöhe Schriftgröße" },
-	{ "zoom-out",		 "Verringere Schriftgröße" },
-	{ "toggle-insert",	 "Umschalten Einfügen / Überschreiben" },
-	{ "toggle-case",	 "Groß/Kleinschreibung beachten" },
+	{ "close",		 "Schlieï¿½en" },
+	{ "zoom-in",		 "Erhï¿½he Schriftgrï¿½ï¿½e" },
+	{ "zoom-out",		 "Verringere Schriftgrï¿½ï¿½e" },
+	{ "toggle-insert",	 "Umschalten Einfï¿½gen / ï¿½berschreiben" },
+	{ "toggle-case",	 "Groï¿½/Kleinschreibung beachten" },
 	{ "toggle-save-tabs",	 "Speichere Tabulatoren" },
 	{ "toggle-cr-lf",	 "Speicher LF als CR/LF" },
-	{ "toggle-auto-indent",  "Auto Einrücken" },
+	{ "toggle-auto-indent",  "Auto Einrï¿½cken" },
 	{ "toggle-column-80",	 "Markiere Spalte 80" },
 	{ "help",		 "Hilfe zu Wort unter dem Cursor" },
 	{ "exec-command",	 "System Kommando..." },
 	{ "document-list",	 "Dokumente Liste" },
 	{ "find-tag",		 "Suche Tag..." },
-	{ "insert-template",	 "Vorlage einfügen..." },
+	{ "insert-template",	 "Vorlage einfï¿½gen..." },
 	{ "completion", 	 NULL },
 	{ "edit-templates-file", "Editiere Vorlage" },
 	{ "edit-config-file",	 NULL },
 	{ "set-word-wrap",	 "Zeilenumbruch..." },
-	{ "set-tab-size",	 "Tabulatorgröße..." },
-	{ "menu",		 "Menü" },
-	{ "about",		 "Über..." },
+	{ "set-tab-size",	 "Tabulatorgrï¿½ï¿½e..." },
+	{ "menu",		 "Menï¿½" },
+	{ "about",		 "ï¿½ber..." },
 	{ "exit",		 "Beenden" },
 	{ "play-macro", 	 "Makro abspielen" },
 	{ "record-macro",	 "Makro aufzeichen" },
@@ -148,16 +148,16 @@ Aufruf: mp [Optionen] [Datei [Datei ...]]\n\
 \n\
 Optionen:\n\
 \n\
- -t|--tag [Tag] 	Öffnet die Datei in der Tag definiert ist\n\
+ -t|--tag [Tag] 	ï¿½ffnet die Datei in der Tag definiert ist\n\
  -w|--word-wrap [col]	Setzt den Zeilenumbruch auf Spalte col\n\
- -ts|--tab-size [size]	Setzt Tabulatorgröße auf size\n\
- --mouse		Aktiviere Mausunterstützung zur Cursorplatzierung\n\
+ -ts|--tab-size [size]	Setzt Tabulatorgrï¿½ï¿½e auf size\n\
+ --mouse		Aktiviere Mausunterstï¿½tzung zur Cursorplatzierung\n\
  --col80		Markiert Spalte # 80\n\
  -hw|--hardware-cursor	Aktiviert den Hardwarecursor\n\
  --version		Version anzeigen\n\
  -h|--help		Diese Hilfeseite\n\
  -bw|--monochrome	Monochrom\n\
- -ai|--autoindent	Aktiviert das Automatische Einrücken\n\
+ -ai|--autoindent	Aktiviert das Automatische Einrï¿½cken\n\
  -nt|--no-transparent	Deaktiviert transparenten Modus (eterm, aterm, etc.)\n\
  -l|--lang [lang]	Language selection\n\
  -m|--mode [mode]	Syntax-Hervorhebung\n\
@@ -166,11 +166,11 @@ Optionen:\n\
 	{ MSG_EMPTY_TEMPLATE, "\
 %%Leere Vorlage\n\
 \n\
-Diese Vorlage ist leer. Um Vorlagen zu erstellen, schreiben Sie für\n\
+Diese Vorlage ist leer. Um Vorlagen zu erstellen, schreiben Sie fï¿½r\n\
 jedes Name (markiert durch zwei % zusammen am Anfang der Zeile) und den\n\
-Textkörper, abgegrenzt durch den nächsten Vorlagennamen oder das Ende\n\
-der Datei. Durch das Auswählen einer Vorlage aus der Liste (angezeigt\n\
-durch Strg+U) wird sie in den momentanen Text eingefügt.\n" },
+Textkï¿½rper, abgegrenzt durch den nï¿½chsten Vorlagennamen oder das Ende\n\
+der Datei. Durch das Auswï¿½hlen einer Vorlage aus der Liste (angezeigt\n\
+durch Strg+U) wird sie in den momentanen Text eingefï¿½gt.\n" },
 	{ NULL, NULL }
 };
 

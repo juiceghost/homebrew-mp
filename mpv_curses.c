@@ -1439,7 +1439,7 @@ char *mpv_readline(int type, char *prompt, char *def)
  * mpv_system_to_clipboard - Copies from the system clipboard
  *
  * Copies the clipboard's content from the underlying system
- * to Minimum Profit's internal one. A returning value of 0
+ * to Morphed Profit's internal one. A returning value of 0
  * means the actual pasting is already done (or done from a
  * system callback), so it won't be necessary to do it.
  */
@@ -1451,7 +1451,7 @@ int mpv_system_to_clipboard(void)
 /**
  * mpv_clipboard_to_system - Copies to the system clipboard
  *
- * Copies the clipboard's content from Minimum Profit to
+ * Copies the clipboard's content from Morphed Profit to
  * the underlying system's one.
  */
 void mpv_clipboard_to_system(void)
@@ -1459,7 +1459,7 @@ void mpv_clipboard_to_system(void)
 }
 
 /**
- * mpv_about - Shows the 'About Minimum Profit...' information.
+ * mpv_about - Shows the 'About Morphed Profit...' information.
  *
  * Shows a text or dialog box showing the information
  * about the program, version and such.
@@ -1751,8 +1751,9 @@ void mpv_shutdown(void)
  */
 static void _mpv_usage(void)
 {
-	printf("Minimum Profit " VERSION " - Programmer Text Editor\n");
+	printf("Morphed Profit " VERSION " - Console-based editor for programmers.\n");
 	printf("Copyright (C) 1991-2003 Angel Ortega <angel@triptico.com>\n");
+	printf("Copyright (C) 2020 juiceghost <jg@renegade.se>\n");
 	printf("%s\n", __DATE__ " " __TIME__);
 	printf("This software is covered by the GPL license. NO WARRANTY.\n\n");
 

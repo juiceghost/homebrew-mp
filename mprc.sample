@@ -1,8 +1,8 @@
 #
-# Minimum Profit config file Sample
+# Morphed Profit config file Sample
 #
 # mp reads first /etc/mprc and then $HOME/.mprc on Unix, and
-# "HKEY_CURRENT_USER\Software\Minimum Profit\Home"/.mprc on MS Windows
+# "HKEY_CURRENT_USER\Software\Morphed Profit\Home"/.mprc on MS Windows
 #
 
 ###################################################

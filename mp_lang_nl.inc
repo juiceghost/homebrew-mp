@@ -56,7 +56,7 @@ static struct lang_str _nl_strs[] =
 	{ MSG_YES, 	 	"J" },
 	{ MSG_NO,	 	"N" },
 	{ MSG_KEYHELP,	 	"<hulp voor toetsen>" },
-	{ MSG_ABOUT,	 	"<over Minimum Profit>" },
+	{ MSG_ABOUT,	 	"<over Morphed Profit>" },
 	{ MSG_EXEC,	 	"Systeem commando: " },
 	{ MSG_CANTEXEC,	 	"Fout bij uitvoeren commando." },
 	{ MSG_WORDWRAP,	 	"Aantal tekens per regel (0, geen nieuwe regels): " },
