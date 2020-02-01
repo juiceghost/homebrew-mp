@@ -13,6 +13,8 @@ DOCPATH=doc/mp_api
 DOCFLAGS=
 DOCFORMAT=html1
 INSTALL=install
+#CFLAGS= $(CFLAGS)
+#LDFLAGS= $(LDFLAGS)
 
 ifeq ($(SYSTEM),AUTODETECT)
 	ifdef DJGPP
@@ -31,8 +33,8 @@ ifeq ($(SYSTEM),AUTODETECT)
 endif
 
 ifeq ($(SYSTEM),GNU)
-	DEFS=-Os -Wall -D_LARGEFILE_SOURCE
-	# Used to be -g instead of -OS on the line above
+	DEFS=-fdata-sections -ffunction-sections -std=c11 -Oz -Wall -D_LARGEFILE_SOURCE
+	# Debugging -g3
 	OBJFLAGS=-c
 	VIDEO=mpv_curses.o
 	LIBS=-l$(CURSES)
@@ -101,7 +103,7 @@ dep:
 # Linux/Unix binaries (console)
 mp: $(OBJS) mpv_curses.$(O)
 	$(CC) $(DEFS) $(CFLAGS) $(LDFLAGS) \
-		$(OBJS) $(VIDEO) $(LIBS) -o mp
+		$(OBJS) $(VIDEO) $(LIBS) -o mp -Wl,-dead_strip
 
 # Win32 binaries
 wmp.exe: $(OBJS) mpv_win32.$(O) mp_res.res
